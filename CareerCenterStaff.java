@@ -2,6 +2,7 @@ import java.util.List;
 import java.util.Date;
 
 public class CareerCenterStaff extends User {
+    //hi
     private String department;
 
     public CareerCenterStaff(String userId, String name, String department) {
