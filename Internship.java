@@ -12,11 +12,13 @@ public class Internship {
     private boolean visible;
     private String status; // Pending, Approved, Rejected, Filled
     private List<Student> applicants;
+    private List<Student> acceptedStudents;
     private Date openingDate;
     private Date closingDate;
 
     // Constructor
-    public Internship(String title, String description, Company company, CompanyRep representative, String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
+    public Internship(String title, String description, Company company, CompanyRep representative,
+                  String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         this.title = title;
         this.description = description;
         this.company = company;
@@ -26,7 +28,9 @@ public class Internship {
         this.openingDate = openingDate;
         this.closingDate = closingDate;
         this.applicants = new ArrayList<>();
+        this.acceptedStudents = new ArrayList<>();
 
+    
         // Limit slots to at most 10
         if (slots > 10) {
             System.out.println("Number of slots cannot exceed 10. Setting slots to 10.");
@@ -34,7 +38,7 @@ public class Internship {
         } else {
             this.totalSlots = slots;
         }
-
+    
         this.slotsRemaining = this.totalSlots;
         this.visible = false; // default visibility
         this.status = "Pending"; // default status
@@ -58,10 +62,20 @@ public class Internship {
     }
 
     public void increaseSlot() {
-    slotsRemaining++;
-    if (status.equals("Filled")) {
-        setStatus("Approved"); // reopen if previously full
+        slotsRemaining++;
+        if (status.equals("Filled")) {
+            setStatus("Approved"); // reopen if previously full
+        }
     }
+
+    public void addAcceptedStudent(Student student) {
+        if (!acceptedStudents.contains(student)) {
+            acceptedStudents.add(student);
+        }
+    }
+
+    public List<Student> getAcceptedStudents() {
+        return acceptedStudents;
     }
 
     // Toggle visibility for students
@@ -87,4 +101,12 @@ public class Internship {
     public List<Student> getApplicants() { return applicants; }
     public Date getOpeningDate() { return openingDate; }
     public Date getClosingDate() { return closingDate; }
+    public void setTitle(String title) { this.title = title; }
+    public void setDescription(String description) { this.description = description; }
+    public void setLevel(String level) { this.level = level; }
+    public void setPreferredMajor(String preferredMajor) { this.preferredMajor = preferredMajor; }
+    public void setTotalSlots(int slots) { this.totalSlots = slots; }
+    public void setSlotsRemaining(int slots) { this.slotsRemaining = slots; }
+    public void setOpeningDate(Date openingDate) { this.openingDate = openingDate; }
+    public void setClosingDate(Date closingDate) { this.closingDate = closingDate; }
 }

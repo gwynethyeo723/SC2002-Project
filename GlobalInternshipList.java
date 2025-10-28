@@ -7,7 +7,9 @@ public class GlobalInternshipList {
 
     // Add an internship to the global list
     public static void addInternship(Internship internship) {
-        internships.add(internship);
+        if (!internships.contains(internship)) {
+            internships.add(internship);
+        }
     }
 
     // Remove an internship from the global list
@@ -18,6 +20,17 @@ public class GlobalInternshipList {
     // Get all internships (unmodifiable to prevent external modification)
     public static List<Internship> getAll() {
         return Collections.unmodifiableList(internships);
+    }
+
+    // Optional: get only approved internships
+    public static List<Internship> getApprovedInternships() {
+        List<Internship> approved = new ArrayList<>();
+        for (Internship i : internships) {
+            if (i.getStatus().equalsIgnoreCase("Approved") || i.getStatus().equalsIgnoreCase("Filled")) {
+                approved.add(i);
+            }
+        }
+        return Collections.unmodifiableList(approved);
     }
 
     // Optional: clear the list (useful for testing)

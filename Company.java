@@ -19,6 +19,10 @@ class Company {
         internshipsOffered.add(internship);
     }
 
+    public void removeInternship(Internship internship) {
+        internshipsOffered.remove(internship);
+    }
+
     public String getName() {
         return name;
     }

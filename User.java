@@ -12,7 +12,7 @@ abstract class User {
 
     public boolean login(String inputUserId, String password) {
         if (!this.getUserId().equals(inputUserId)) {
-            System.out.println("User ID is invalid.");
+            System.out.println("User ID does not exist.");
             return false;
         }
 

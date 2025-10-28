@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.List;
 
 public class CompanyRep extends User {
     private Company company;
@@ -56,18 +57,30 @@ public class CompanyRep extends User {
     }
 
     // Create internship with all required fields
-    public Internship createInternship(String title, String description, String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
+    public Internship createInternship(String title, String description, String level, 
+                                   String preferredMajor, int slots, Date openingDate, Date closingDate) {
         if (!isLoggedIn) {
             System.out.println("You must be logged in to perform this action.");
             return null;
         }
-        if(company.getInternshipsOffered().size() >= 5) {
-            System.out.println("Cannot create more than 5 internships for this company.");
+
+        // Limit to 5 internships per company rep
+        long repCount = company.getInternshipsOffered().stream()
+                           .filter(i -> i.getRepresentative().equals(this))
+                           .count();
+        if (repCount >= 5) {
+            System.out.println("Cannot create more than 5 internships per representative.");
             return null;
         }
 
+        // Cap slots at 10
+        if (slots > 10) slots = 10;
+
         Internship internship = new Internship(title, description, company, this, level, preferredMajor, slots, openingDate, closingDate);
+
         company.addInternship(internship);
+        GlobalInternshipList.addInternship(internship); // add immediately to global list
+
         System.out.println("Internship '" + title + "' created and awaiting approval.");
         return internship;
     }
@@ -125,6 +138,116 @@ public class CompanyRep extends User {
 
         // Toggle visibility using the existing setter
         internship.setVisibility(!internship.isVisible());
-        System.out.println("Internship '" + internship.getTitle() + " 's visibility is now " + (internship.isVisible() ? "ON" : "OFF"));
+        System.out.println("Internship '" + internship.getTitle() + " 's visibility is now " 
+                       + (internship.isVisible() ? "ON" : "OFF"));
     }
+    
+    
+    public void editInternship(Internship internship, String newTitle, String newDescription, 
+                           String newLevel, String newPreferredMajor, int newSlots, 
+                           Date newOpeningDate, Date newClosingDate) {
+        if (!isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+
+        // Only the representative who created the internship can edit
+        if (!internship.getRepresentative().equals(this)) {
+            System.out.println("You cannot edit internships you do not manage.");
+            return;
+        }
+
+        // Only Pending or Rejected internships can be edited
+        if (!internship.getStatus().equalsIgnoreCase("Pending") && 
+            !internship.getStatus().equalsIgnoreCase("Rejected")) {
+            System.out.println("Only internships with Pending or Rejected status can be edited.");
+        return;
+        }
+
+        // Enforce maximum slots of 10
+        if (newSlots > 10) {
+            System.out.println("Number of slots cannot exceed 10. Setting slots to 10.");
+            newSlots = 10;
+        }
+
+        // Apply updates
+        internship.setTitle(newTitle);
+        internship.setDescription(newDescription);
+        internship.setLevel(newLevel);
+        internship.setPreferredMajor(newPreferredMajor);
+        internship.setTotalSlots(newSlots);      // updated slots
+        internship.setSlotsRemaining(newSlots);  // reset remaining slots
+        internship.setOpeningDate(newOpeningDate);
+        internship.setClosingDate(newClosingDate);
+
+        System.out.println("Internship '" + internship.getTitle() + "' has been updated.");
+    }
+
+    public void deleteInternship(Internship internship) {
+        if (!isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+
+        // Only allow deleting internships owned by this rep
+        if (!internship.getRepresentative().equals(this)) {
+            System.out.println("Cannot delete an internship you do not manage.");
+            return;
+        }
+
+        // Remove internship from all students who applied
+        for (Student s : internship.getApplicants()) {
+            s.removeAppliedInternship(internship); // remove from appliedInternships map
+            if (s.getAcceptedInternship() != null && s.getAcceptedInternship().equals(internship)) {
+                s.setAcceptedInternship(null); // clear accepted internship if needed
+            }
+        }
+
+        // Remove from company's internship list
+        internship.getCompany().getInternshipsOffered().remove(internship);
+
+        // Remove from global internship list
+        GlobalInternshipList.removeInternship(internship);
+
+        System.out.println("Internship '" + internship.getTitle() + "' deleted successfully.");
+    }   
+
+
+    public void viewInternships() {
+        viewInternships(null); // calls the overloaded method with null input
+    }
+
+    public void viewInternships(Internship specificInternship) {
+        if (!isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+
+        List<Internship> myInternships = company.getInternshipsOffered().stream()
+            .filter(i -> i.getRepresentative().equals(this))
+            .toList();
+
+        if (myInternships.isEmpty()) {
+            System.out.println("You have not created any internships yet.");
+            return;
+        }
+
+        System.out.println("---- My Internships ----");
+
+        for (Internship internship : myInternships) {
+            if (specificInternship != null && !internship.equals(specificInternship)) {
+                continue; // skip others
+            }
+
+            System.out.println("Title: " + internship.getTitle()
+                    + " | Status: " + internship.getStatus()
+                    + " | Level: " + internship.getLevel()
+                    + " | Preferred Major: " + internship.getPreferredMajor()
+                    + " | Slots: " + internship.getSlotsRemaining() + "/" + internship.getTotalSlots()
+                    + " | Visible: " + (internship.isVisible() ? "Yes" : "No")
+                    + " | Opening Date: " + internship.getOpeningDate()
+                    + " | Closing Date: " + internship.getClosingDate());
+        }
+    }
+
 }

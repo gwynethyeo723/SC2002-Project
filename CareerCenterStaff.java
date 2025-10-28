@@ -1,8 +1,8 @@
 import java.util.List;
+import java.util.Map;
 import java.util.Date;
 
 public class CareerCenterStaff extends User {
-    //hi
     private String department;
 
     public CareerCenterStaff(String userId, String name, String department) {
@@ -38,8 +38,7 @@ public class CareerCenterStaff extends User {
         if (approve) {
             internship.setStatus("Approved");
             internship.setVisibility(true); // make it visible automatically
-            GlobalInternshipList.addInternship(internship); // add to global list
-            System.out.println("Internship '" + internship.getTitle() + "' approved, visibility ON, and added to global list.");
+            System.out.println("Internship '" + internship.getTitle() + "' approved, and visibility is turned ON.");
         } else {
             internship.setStatus("Rejected");
             System.out.println("Internship '" + internship.getTitle() + "' rejected and will not be visible to students.");
@@ -52,25 +51,40 @@ public class CareerCenterStaff extends User {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
-        if(!student.getAppliedInternships().containsKey(internship)) {
-            System.out.println(student.getName() + " did not apply for this internship.");
+
+        // First check if the student actually requested withdrawal
+        if (!student.isPendingWithdrawal()) {
+            System.out.println(student.getName() + " has not requested withdrawal for this internship.");
             return;
         }
 
-        if(approve) {
-            student.getAppliedInternships().put(internship, "Withdrawn");
-            if(student.getAcceptedInternship() != null && student.getAcceptedInternship().equals(internship)) {
-                student.setAcceptedInternship(null);
-                internship.increaseSlot();
+        if (approve) {
+            // Mark internship as withdrawn in appliedInternships if it exists
+            if (student.getAppliedInternships().containsKey(internship)) {
+                student.getAppliedInternships().put(internship, "Withdrawn");
             }
-            System.out.println("Withdrawal approved for " + student.getName());
+
+            // Clear accepted internship if it matches
+            if (student.getAcceptedInternship() != null && student.getAcceptedInternship().equals(internship)) {
+                student.setAcceptedInternship(null);
+                internship.increaseSlot(); // return slot if it was accepted
+            }
+
+            System.out.println("Withdrawal approved for " + student.getName() + " from " + internship.getTitle());
         } else {
-            System.out.println("Withdrawal rejected for " + student.getName());
+            System.out.println("Withdrawal rejected for " + student.getName() + " from " + internship.getTitle());
         }
+
+        // Reset pendingWithdrawal flag
+        student.setPendingWithdrawal(false);
     }
 
+
     // Generate a report on internships (example: by status)
-    public void generateInternshipReport(String filterStatus, String filterMajor, String filterLevel) {
+    public void generateInternshipReport(String filterStatus, 
+                                     String filterMajor, 
+                                     String filterLevel) {
+
         if (!isLoggedIn) {
             System.out.println("You must be logged in to perform this action.");
             return;

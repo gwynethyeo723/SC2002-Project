@@ -11,6 +11,7 @@ class Student extends User {
     private String major;
     private Map<Internship, String> appliedInternships; // Stores key as the Internship object and value as the status
     private Internship acceptedInternship;
+    private boolean pendingWithdrawal;
 
     public Student(String userId, String name, int year, String major) {
         super(userId, name);
@@ -18,6 +19,7 @@ class Student extends User {
         this.major = major;
         this.appliedInternships = new HashMap<>();
         this.acceptedInternship = null;
+        this.pendingWithdrawal = false;
     }
 
     public List<Internship> viewAvailableInternships() {
@@ -75,30 +77,62 @@ class Student extends User {
         System.out.println(getName() + " applied for " + internship.getTitle() + " at " + internship.getCompany().getName());
     }
 
+    // Method called when student accepts an internship
     public void acceptInternship(Internship internship) {
         if (!isLoggedIn) {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
+
         String status = appliedInternships.get(internship);
-        if(status != null && status.equals("Successful")) {
-            if(acceptedInternship != null) {
+        if (status != null && status.equals("Successful")) {
+            if (acceptedInternship != null) {
                 System.out.println("Already accepted an internship.");
                 return;
             }
             acceptedInternship = internship;
             internship.decreaseSlot();
-            // withdraw from other applications
-            for(Internship i : appliedInternships.keySet()) {
-                if(!i.equals(internship)) {
+            internship.addAcceptedStudent(this); // track accepted student
+
+            // Withdraw from other applications
+            for (Internship i : appliedInternships.keySet()) {
+                if (!i.equals(internship)) {
                     appliedInternships.put(i, "Withdrawn");
                 }
             }
-            System.out.println(getName() + " accepted internship: " + internship.getTitle() + "for " + internship.getCompany());
+
+            System.out.println(getName() + " accepted internship: " + internship.getTitle() +
+                " for " + internship.getCompany().getName());
         } else {
             System.out.println("Cannot accept: Application not successful yet.");
         }
     }
+
+    // Method to remove an internship from appliedInternships (used during deletion)
+    public void removeAppliedInternship(Internship internship) {
+        appliedInternships.remove(internship);
+    }
+
+
+    public void requestWithdrawal(Internship internship) {
+        if (!isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+
+        // Check if the student has applied OR has accepted this internship
+        boolean hasApplied = appliedInternships.containsKey(internship);
+        boolean hasAccepted = acceptedInternship != null && acceptedInternship.equals(internship);
+
+        if (!hasApplied && !hasAccepted) {
+            System.out.println("You have neither applied for nor accepted this internship.");
+            return;
+        }
+
+        pendingWithdrawal = true;
+        System.out.println(getName() + " has requested withdrawal from " + internship.getTitle());
+    }
+
 
     public String getMajor() {
         return major;
@@ -115,5 +149,13 @@ class Student extends User {
 
     public void setAcceptedInternship(Internship acceptedInternship) {
         this.acceptedInternship = acceptedInternship;
+    }
+
+    public boolean isPendingWithdrawal() {
+        return pendingWithdrawal;
+    }
+
+    public void setPendingWithdrawal(boolean pendingWithdrawal) {
+        this.pendingWithdrawal = pendingWithdrawal;
     }
 }
