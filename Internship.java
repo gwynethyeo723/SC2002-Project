@@ -16,8 +16,7 @@ public class Internship {
     private Date closingDate;
 
     // Constructor
-    public Internship(String title, String description, Company company, CompanyRep representative,
-                  String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
+    public Internship(String title, String description, Company company, CompanyRep representative, String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         this.title = title;
         this.description = description;
         this.company = company;
