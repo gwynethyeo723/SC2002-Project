@@ -56,8 +56,7 @@ public class CompanyRep extends User {
     }
 
     // Create internship with all required fields
-    public Internship createInternship(String title, String description, String level,
-                                   String preferredMajor, int slots, Date openingDate, Date closingDate) {
+    public Internship createInternship(String title, String description, String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         if (!isLoggedIn) {
             System.out.println("You must be logged in to perform this action.");
             return null;
@@ -67,8 +66,7 @@ public class CompanyRep extends User {
             return null;
         }
 
-        Internship internship = new Internship(title, description, company, this, level, preferredMajor,
-                                           slots, openingDate, closingDate);
+        Internship internship = new Internship(title, description, company, this, level, preferredMajor, slots, openingDate, closingDate);
         company.addInternship(internship);
         System.out.println("Internship '" + title + "' created and awaiting approval.");
         return internship;
@@ -127,7 +125,6 @@ public class CompanyRep extends User {
 
         // Toggle visibility using the existing setter
         internship.setVisibility(!internship.isVisible());
-        System.out.println("Internship '" + internship.getTitle() + " 's visibility is now "
-                       + (internship.isVisible() ? "ON" : "OFF"));
+        System.out.println("Internship '" + internship.getTitle() + " 's visibility is now " + (internship.isVisible() ? "ON" : "OFF"));
     }
 }

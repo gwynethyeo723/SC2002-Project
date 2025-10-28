@@ -69,10 +69,7 @@ public class CareerCenterStaff extends User {
     }
 
     // Generate a report on internships (example: by status)
-    public void generateInternshipReport(String filterStatus,
-                                     String filterMajor,
-                                     String filterLevel) {
-
+    public void generateInternshipReport(String filterStatus, String filterMajor, String filterLevel) {
         if (!isLoggedIn) {
             System.out.println("You must be logged in to perform this action.");
             return;

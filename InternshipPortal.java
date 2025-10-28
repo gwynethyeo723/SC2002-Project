@@ -29,13 +29,13 @@ public class InternshipPortal {
         Date openDate = sdf.parse("2025-11-01");
         Date closeDate = sdf.parse("2025-11-30");
         Internship intern1 = rep1.createInternship(
-                "Software Intern",
-                "Work on backend systems",
-                "Basic",
-                "Computer Science",
-                5,
-                openDate,
-                closeDate
+            "Software Intern",
+            "Work on backend systems",
+            "Basic",
+            "Computer Science",
+            5,
+            openDate,
+            closeDate
         );
 
         // Staff logs in (again) to approve the internship
