@@ -36,12 +36,10 @@ public class CareerCenterStaff extends User {
             return;
         }
         if (approve) {
-            internship.setStatus("Approved");
-            internship.setVisibility(true); // make it visible automatically
-            System.out.println("Internship '" + internship.getTitle() + "' approved, and visibility is turned ON.");
+            internship.setStatus(InternshipStatus.APPROVED);
+            internship.setVisibility(true);
         } else {
-            internship.setStatus("Rejected");
-            System.out.println("Internship '" + internship.getTitle() + "' rejected and will not be visible to students.");
+            internship.setStatus(InternshipStatus.REJECTED);
         }
     }
 
@@ -61,7 +59,7 @@ public class CareerCenterStaff extends User {
         if (approve) {
             // Mark internship as withdrawn in appliedInternships if it exists
             if (student.getAppliedInternships().containsKey(internship)) {
-                student.getAppliedInternships().put(internship, "Withdrawn");
+                student.getAppliedInternships().put(internship, ApplicationStatus.WITHDRAWN);
             }
 
             // Clear accepted internship if it matches
@@ -95,10 +93,27 @@ public class CareerCenterStaff extends User {
 
         for (Internship internship : internships) {
             // Apply filters
-            if (filterStatus != null && !internship.getStatus().equalsIgnoreCase(filterStatus)) continue;
-            if (filterMajor != null && !internship.getPreferredMajor().equalsIgnoreCase(filterMajor)) continue;
-            if (filterLevel != null && !internship.getLevel().equalsIgnoreCase(filterLevel)) continue;
-
+            if (filterStatus != null) {
+                try {
+                    InternshipStatus statusFilter = InternshipStatus.valueOf(filterStatus.toUpperCase());
+                    if (internship.getStatus() != statusFilter) continue;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid status filter: " + filterStatus);
+                    continue;
+                }
+            }
+            if (filterMajor != null && !internship.getPreferredMajor().equalsIgnoreCase(filterMajor)) {
+                continue;
+            }
+            if (filterLevel != null) {
+                try {
+                    InternshipLevel levelFilter = InternshipLevel.valueOf(filterLevel.toUpperCase());
+                    if (internship.getLevel() != levelFilter) continue;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid level filter: " + filterLevel);
+                    continue;
+                }
+            }
             // Determine if the internship is open or closed
             String openStatus = internship.getClosingDate().before(today) ? "Closed" : "Open";
 

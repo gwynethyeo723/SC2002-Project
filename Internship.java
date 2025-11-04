@@ -5,12 +5,12 @@ public class Internship {
     private String description;
     private Company company;
     private CompanyRep representative;
-    private String level; // Basic, Intermediate, Advanced
+    private InternshipLevel level;
     private String preferredMajor;
     private int totalSlots;
     private int slotsRemaining;
     private boolean visible;
-    private String status; // Pending, Approved, Rejected, Filled
+    private InternshipStatus status; 
     private List<Student> applicants;
     private List<Student> acceptedStudents;
     private Date openingDate;
@@ -23,14 +23,13 @@ public class Internship {
         this.description = description;
         this.company = company;
         this.representative = representative;
-        this.level = level;
+        this.level = mapLevel(level);
         this.preferredMajor = preferredMajor;
         this.openingDate = openingDate;
         this.closingDate = closingDate;
         this.applicants = new ArrayList<>();
         this.acceptedStudents = new ArrayList<>();
-
-    
+            
         // Limit slots to at most 10
         if (slots > 10) {
             System.out.println("Number of slots cannot exceed 10. Setting slots to 10.");
@@ -41,7 +40,16 @@ public class Internship {
     
         this.slotsRemaining = this.totalSlots;
         this.visible = false; // default visibility
-        this.status = "Pending"; // default status
+        this.status = InternshipStatus.PENDING;
+    }
+
+    private InternshipLevel mapLevel(String level) {
+        switch(level.toLowerCase()) {
+            case "basic": return InternshipLevel.BASIC;
+            case "intermediate": return InternshipLevel.INTERMEDIATE;
+            case "advanced": return InternshipLevel.ADVANCED;
+            default: return InternshipLevel.BASIC; // fallback
+        }
     }
 
     // Add a student as applicant
@@ -53,18 +61,19 @@ public class Internship {
 
     // Decrease available slots by 1
     public void decreaseSlot() {
-        if(slotsRemaining > 0) {
+        if (slotsRemaining > 0) {
             slotsRemaining--;
-            if(slotsRemaining == 0) {
-                status = "Filled";
+            if (slotsRemaining == 0) {
+                status = InternshipStatus.FILLED; // use enum
             }
         }
     }
 
+
     public void increaseSlot() {
         slotsRemaining++;
-        if (status.equals("Filled")) {
-            setStatus("Approved"); // reopen if previously full
+        if (status == InternshipStatus.FILLED) { // compare enum directly
+            status = InternshipStatus.APPROVED; // reopen if previously full
         }
     }
 
@@ -90,12 +99,13 @@ public class Internship {
     // Setters and Getters
     public String getTitle() { return title; }
     public String getDescription() { return description; }
-    public String getLevel() { return level; }
+    public InternshipLevel getLevel() { return level; }
+    public void setLevel(InternshipLevel level) { this.level = level; }
     public String getPreferredMajor() { return preferredMajor; }
     public int getTotalSlots() { return totalSlots; }
     public int getSlotsRemaining() { return slotsRemaining; }
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public InternshipStatus getStatus() { return status; }
+    public void setStatus(InternshipStatus status) { this.status = status; }
     public Company getCompany() { return company; }
     public CompanyRep getRepresentative() { return representative; }
     public List<Student> getApplicants() { return applicants; }
@@ -103,7 +113,6 @@ public class Internship {
     public Date getClosingDate() { return closingDate; }
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) { this.description = description; }
-    public void setLevel(String level) { this.level = level; }
     public void setPreferredMajor(String preferredMajor) { this.preferredMajor = preferredMajor; }
     public void setTotalSlots(int slots) { this.totalSlots = slots; }
     public void setSlotsRemaining(int slots) { this.slotsRemaining = slots; }

@@ -117,11 +117,9 @@ public class CompanyRep extends User {
 
         // Approve or reject
         if(approve) {
-            student.getAppliedInternships().put(internship, "Successful"); // only update status
-            System.out.println("Application approved for " + student.getName());
+            student.getAppliedInternships().put(internship, ApplicationStatus.SUCCESSFUL);
         } else {
-            student.getAppliedInternships().put(internship, "Unsuccessful");
-            System.out.println("Application rejected for " + student.getName());
+            student.getAppliedInternships().put(internship, ApplicationStatus.UNSUCCESSFUL);
         }
     }
 
@@ -158,10 +156,9 @@ public class CompanyRep extends User {
         }
 
         // Only Pending or Rejected internships can be edited
-        if (!internship.getStatus().equalsIgnoreCase("Pending") && 
-            !internship.getStatus().equalsIgnoreCase("Rejected")) {
+        if (internship.getStatus() != InternshipStatus.PENDING &&internship.getStatus() != InternshipStatus.REJECTED) {
             System.out.println("Only internships with Pending or Rejected status can be edited.");
-        return;
+            return;
         }
 
         // Enforce maximum slots of 10
@@ -170,10 +167,19 @@ public class CompanyRep extends User {
             newSlots = 10;
         }
 
+        // ✅ Convert string to enum safely
+        InternshipLevel levelEnum;
+        try {
+            levelEnum = InternshipLevel.valueOf(newLevel.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid level entered. Please choose: Basic, Intermediate, or Advanced.");
+            return;
+        }
+
         // Apply updates
         internship.setTitle(newTitle);
         internship.setDescription(newDescription);
-        internship.setLevel(newLevel);
+        internship.setLevel(levelEnum);
         internship.setPreferredMajor(newPreferredMajor);
         internship.setTotalSlots(newSlots);      // updated slots
         internship.setSlotsRemaining(newSlots);  // reset remaining slots

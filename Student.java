@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 class Student extends User {
     private int year;
     private String major;
-    private Map<Internship, String> appliedInternships; // Stores key as the Internship object and value as the status
+    private Map<Internship, ApplicationStatus> appliedInternships;
     private Internship acceptedInternship;
     private boolean pendingWithdrawal;
 
@@ -27,13 +27,14 @@ class Student extends User {
             System.out.println("You must be logged in to perform this action.");
             return new ArrayList<>(); // return empty list instead
         }
+
         return GlobalInternshipList.getAll().stream()
-            .filter(i -> i.isVisible())
-            .filter(i -> i.getStatus().equalsIgnoreCase("Approved"))
+            .filter(Internship::isVisible)
+            .filter(i -> i.getStatus() == InternshipStatus.APPROVED) // enum comparison
             .filter(i -> i.getPreferredMajor().equalsIgnoreCase(this.major))
             .filter(i -> {
                 if (this.year < 3) {
-                    return i.getLevel().equalsIgnoreCase("Basic");
+                    return i.getLevel() == InternshipLevel.BASIC; // enum comparison
                 }
                 return true;
             })
@@ -53,13 +54,13 @@ class Student extends User {
         }
 
         // Year-level restriction
-        if(year < 3 && !internship.getLevel().equals("Basic")) {
+        if (year < 3 && internship.getLevel() != InternshipLevel.BASIC) {
             System.out.println("Year restriction: cannot apply for this level.");
             return;
         }
 
         // Check visibility and approval
-        if(!internship.isVisible() || !"Approved".equals(internship.getStatus())) {
+        if (!internship.isVisible() || internship.getStatus() != InternshipStatus.APPROVED) {
             System.out.println("Cannot apply: Internship not available.");
             return;
         }
@@ -72,7 +73,7 @@ class Student extends User {
         }
 
         // Apply
-        appliedInternships.put(internship, "Pending");
+        appliedInternships.put(internship, ApplicationStatus.PENDING);
         internship.addApplicant(this);
         System.out.println(getName() + " applied for " + internship.getTitle() + " at " + internship.getCompany().getName());
     }
@@ -84,8 +85,8 @@ class Student extends User {
             return;
         }
 
-        String status = appliedInternships.get(internship);
-        if (status != null && status.equals("Successful")) {
+        ApplicationStatus status = appliedInternships.get(internship); // get enum value
+        if (status != null && status == ApplicationStatus.SUCCESSFUL) { // compare enum with ==
             if (acceptedInternship != null) {
                 System.out.println("Already accepted an internship.");
                 return;
@@ -97,7 +98,7 @@ class Student extends User {
             // Withdraw from other applications
             for (Internship i : appliedInternships.keySet()) {
                 if (!i.equals(internship)) {
-                    appliedInternships.put(i, "Withdrawn");
+                    appliedInternships.put(i, ApplicationStatus.WITHDRAWN); // use enum constant
                 }
             }
 
@@ -139,7 +140,7 @@ class Student extends User {
     }
 
     // Getter for appliedInternships
-    public Map<Internship, String> getAppliedInternships() {
+    public Map<Internship, ApplicationStatus> getAppliedInternships() {
         return appliedInternships;
     }
 

@@ -26,7 +26,7 @@ public class GlobalInternshipList {
     public static List<Internship> getApprovedInternships() {
         List<Internship> approved = new ArrayList<>();
         for (Internship i : internships) {
-            if (i.getStatus().equalsIgnoreCase("Approved") || i.getStatus().equalsIgnoreCase("Filled")) {
+            if (i.getStatus() == InternshipStatus.APPROVED || i.getStatus() == InternshipStatus.FILLED) {
                 approved.add(i);
             }
         }
