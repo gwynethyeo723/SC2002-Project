@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.Map;
 import java.util.Date;
 
 public class CareerCenterStaff extends User {
@@ -21,10 +20,10 @@ public class CareerCenterStaff extends User {
             return;
         }
         if(approve) {
-            rep.setStatus("Approved");
+            rep.setStatus(CompanyRepStatus.APPROVED);
             System.out.println("CompanyRep " + rep.getName() + " approved.");
         } else {
-            rep.setStatus("Rejected");
+            rep.setStatus(CompanyRepStatus.REJECTED);
             System.out.println("CompanyRep " + rep.getName() + " rejected.");
         }
     }

@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CompanyRep extends User {
     private Company company;
-    private String status; // Pending, Approved, Rejected
+    private CompanyRepStatus status;
     private String department;
     private String position;
     private String email; // new attribute, serves as userId
@@ -12,7 +12,7 @@ public class CompanyRep extends User {
         super(email, name); // use email as userId in parent User class
         this.email = email;
         this.company = company;
-        this.status = "Pending"; // default until authorized
+        this.status = CompanyRepStatus.PENDING; // default until authorized
         this.department = department;
         this.position = position;
         company.addRepresentative(this);
@@ -48,11 +48,11 @@ public class CompanyRep extends User {
         this.position = position;
     }
 
-    public String getStatus() {
+    public CompanyRepStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(CompanyRepStatus status) {
         this.status = status;
     }
 
@@ -89,7 +89,7 @@ public class CompanyRep extends User {
     @Override
     public boolean login(String inputUserId, String password) {
         // First, check approval status
-        if (!"Approved".equals(this.status)) {
+        if (this.status != CompanyRepStatus.APPROVED) {
             System.out.println("Account not approved yet. Please contact Career Center Staff.");
             return false;
         }
