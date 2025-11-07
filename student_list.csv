@@ -1,101 +1,101 @@
-StudentID,Name,Major,Year,Email
-U2310001A,Ye JianGuo,Information Engineering & Media,3,ye0001@e.ntu.edu.sg
-U2310002B,Xiang JianGuo,Information Engineering & Media,3,xiang0002@e.ntu.edu.sg
-U2310003C,Leslie Luo,Computer Science,3,luo0003@e.ntu.edu.sg
-U2510004D,Eileen Lin,Computer Science,1,lin0004@e.ntu.edu.sg
-U2510005E,James Wang,Computer Science,1,wang0005@e.ntu.edu.sg
-U2310006F,Georgina Wang,Information Engineering & Media,3,wang0006@e.ntu.edu.sg
-U2410007G,Jayne Wang,Computer Engineering,2,wang0007@e.ntu.edu.sg
-U2410008H,Cai XiaoHong,Information Engineering & Media,2,cai0008@e.ntu.edu.sg
-U2510009I,Melissa Li,Computer Engineering,1,li0009@e.ntu.edu.sg
-U2210010J,Pamela Liu,Data Science & AI,4,liu0010@e.ntu.edu.sg
-U2510011K,Song DanDan,Information Engineering & Media,1,song0011@e.ntu.edu.sg
-U2510012L,Bryan Li,Computer Science,1,li0012@e.ntu.edu.sg
-U2310013M,Huang XueMei,Computer Engineering,3,huang0013@e.ntu.edu.sg
-U2510014N,Xu LiJuan,Information Engineering & Media,1,xu0014@e.ntu.edu.sg
-U2210015O,Mohamed Wang,Computer Engineering,4,wang0015@e.ntu.edu.sg
-U2410016P,Zhao JianHua,Computer Science,2,zhao0016@e.ntu.edu.sg
-U2210017Q,Zhang GuiYing,Computer Engineering,4,zhang0017@e.ntu.edu.sg
-U2210018R,Georgina Shao,Data Science & AI,4,shao0018@e.ntu.edu.sg
-U2210019S,He DanDan,Computer Engineering,4,he0019@e.ntu.edu.sg
-U2410020T,Dai JianJun,Computer Engineering,2,dai0020@e.ntu.edu.sg
-U2310021U,Wang LiHua,Information Engineering & Media,3,wang0021@e.ntu.edu.sg
-U2210022V,He GuiFang,Computer Science,4,he0022@e.ntu.edu.sg
-U2310023W,Louis Jiang,Computer Engineering,3,jiang0023@e.ntu.edu.sg
-U2210024X,Chen XiuFang,Information Engineering & Media,4,chen0024@e.ntu.edu.sg
-U2210025Y,Elaine Huang,Computer Engineering,4,huang0025@e.ntu.edu.sg
-U2210026Z,Ni XiaoHong,Information Engineering & Media,4,ni0026@e.ntu.edu.sg
-U2210027A,Wu GuiZhi,Computer Engineering,4,wu0027@e.ntu.edu.sg
-U2410028B,Yvonne Wang,Data Science & AI,2,wang0028@e.ntu.edu.sg
-U2210029C,Xin JianPing,Data Science & AI,4,xin0029@e.ntu.edu.sg
-U2410030D,Pamela Cui,Computer Science,2,cui0030@e.ntu.edu.sg
-U2310031E,Laura Liu,Computer Engineering,3,liu0031@e.ntu.edu.sg
-U2310032F,Ban GuiFang,Information Engineering & Media,3,ban0032@e.ntu.edu.sg
-U2310033G,Joanna Feng,Computer Science,3,feng0033@e.ntu.edu.sg
-U2210034H,Wang XiuYing,Information Engineering & Media,4,wang0034@e.ntu.edu.sg
-U2210035I,Sara OuYang,Computer Science,4,ouyang0035@e.ntu.edu.sg
-U2410036J,Zhang GuiYing,Information Engineering & Media,2,zhang0036@e.ntu.edu.sg
-U2410037K,Anthony Jia,Computer Science,2,jia0037@e.ntu.edu.sg
-U2210038L,Li XiuMei,Data Science & AI,4,li0038@e.ntu.edu.sg
-U2410039M,Luo TingTing,Information Engineering & Media,2,luo0039@e.ntu.edu.sg
-U2510040N,Janet Wang,Computer Engineering,1,wang0040@e.ntu.edu.sg
-U2510041O,Helen Shi,Data Science & AI,1,shi0041@e.ntu.edu.sg
-U2510042P,Bao JianJun,Data Science & AI,1,bao0042@e.ntu.edu.sg
-U2510043Q,Zhu YuYing,Information Engineering & Media,1,zhu0043@e.ntu.edu.sg
-U2410044R,Wang LiHua,Information Engineering & Media,2,wang0044@e.ntu.edu.sg
-U2310045S,Ian Yang,Computer Engineering,3,yang0045@e.ntu.edu.sg
-U2310046T,Tang XiuRong,Computer Engineering,3,tang0046@e.ntu.edu.sg
-U2510047U,Christine Huang,Information Engineering & Media,1,huang0047@e.ntu.edu.sg
-U2310048V,Wang GuiYing,Information Engineering & Media,3,wang0048@e.ntu.edu.sg
-U2310049W,Hazel Meng,Information Engineering & Media,3,meng0049@e.ntu.edu.sg
-U2510050X,Ding GuiFang,Computer Engineering,1,ding0050@e.ntu.edu.sg
-U2410051Y,Hollie Huang,Data Science & AI,2,huang0051@e.ntu.edu.sg
-U2410052Z,Wang JianJun,Computer Science,2,wang0052@e.ntu.edu.sg
-U2310053A,Wei GuiHua,Data Science & AI,3,wei0053@e.ntu.edu.sg
-U2310054B,Tan XueMei,Information Engineering & Media,3,tan0054@e.ntu.edu.sg
-U2210055C,Kate Liu,Computer Science,4,liu0055@e.ntu.edu.sg
-U2310056D,Ashleigh Yang,Data Science & AI,3,yang0056@e.ntu.edu.sg
-U2310057E,Shaun Li,Computer Engineering,3,li0057@e.ntu.edu.sg
-U2410058F,Hu TingTing,Data Science & AI,2,hu0058@e.ntu.edu.sg
-U2210059G,Hugh Guo,Data Science & AI,4,guo0059@e.ntu.edu.sg
-U2310060H,Christopher Huang,Data Science & AI,3,huang0060@e.ntu.edu.sg
-U2510061I,Tina Han,Information Engineering & Media,1,han0061@e.ntu.edu.sg
-U2510062J,Lian GuiXiang,Information Engineering & Media,1,lian0062@e.ntu.edu.sg
-U2410063K,Owen Dai,Information Engineering & Media,2,dai0063@e.ntu.edu.sg
-U2410064L,Du JianGuo,Computer Science,2,du0064@e.ntu.edu.sg
-U2310065M,Michelle Qin,Computer Engineering,3,qin0065@e.ntu.edu.sg
-U2210066N,Feng YuLan,Data Science & AI,4,feng0066@e.ntu.edu.sg
-U2410067O,Guo XiuHua,Information Engineering & Media,2,guo0067@e.ntu.edu.sg
-U2510068P,Cao HongXia,Information Engineering & Media,1,cao0068@e.ntu.edu.sg
-U2210069Q,Deng GuiHua,Information Engineering & Media,4,deng0069@e.ntu.edu.sg
-U2210070R,Kelly Lu,Computer Science,4,lu0070@e.ntu.edu.sg
-U2310071S,Joan Zhao,Computer Science,3,zhao0071@e.ntu.edu.sg
-U2510072T,Chen HongXia,Data Science & AI,1,chen0072@e.ntu.edu.sg
-U2310073U,Mo JianHua,Computer Science,3,mo0073@e.ntu.edu.sg
-U2510074V,Geraldine Xian,Data Science & AI,1,xian0074@e.ntu.edu.sg
-U2310075W,Lu LiLi,Computer Engineering,3,lu0075@e.ntu.edu.sg
-U2310076X,Carly Bai,Information Engineering & Media,3,bai0076@e.ntu.edu.sg
-U2510077Y,Zhou DongMei,Data Science & AI,1,zhou0077@e.ntu.edu.sg
-U2310078Z,Josephine Zhong,Computer Science,3,zhong0078@e.ntu.edu.sg
-U2510079A,Keith Peng,Computer Science,1,peng0079@e.ntu.edu.sg
-U2410080B,Mark Li,Computer Science,2,li0080@e.ntu.edu.sg
-U2410081C,Lei YuYing,Computer Science,2,lei0081@e.ntu.edu.sg
-U2210082D,Ceng XiuLan,Data Science & AI,4,ceng0082@e.ntu.edu.sg
-U2510083E,Liu ShuHua,Computer Science,1,liu0083@e.ntu.edu.sg
-U2210084F,Zhu GuiHua,Computer Science,4,zhu0084@e.ntu.edu.sg
-U2310085G,Li ShuZhen,Computer Science,3,li0085@e.ntu.edu.sg
-U2210086H,Liu ShuLan,Data Science & AI,4,liu0086@e.ntu.edu.sg
-U2210087I,Ross Li,Computer Engineering,4,li0087@e.ntu.edu.sg
-U2510088J,Joel Zhao,Computer Science,1,zhao0088@e.ntu.edu.sg
-U2210089K,Cheng GuiHua,Information Engineering & Media,4,cheng0089@e.ntu.edu.sg
-U2510090L,Amy Wang,Information Engineering & Media,1,wang0090@e.ntu.edu.sg
-U2210091M,Ding XiaoHong,Computer Engineering,4,ding0091@e.ntu.edu.sg
-U2510092N,Ronald Liu,Computer Engineering,1,liu0092@e.ntu.edu.sg
-U2510093O,Yang GuiRong,Information Engineering & Media,1,yang0093@e.ntu.edu.sg
-U2510094P,Ma HaiYan,Computer Engineering,1,ma0094@e.ntu.edu.sg
-U2410095Q,Zhang JianGuo,Computer Engineering,2,zhang0095@e.ntu.edu.sg
-U2510096R,Yin JianJun,Computer Science,1,yin0096@e.ntu.edu.sg
-U2410097S,Lauren Zhu,Computer Science,2,zhu0097@e.ntu.edu.sg
-U2310098T,Samuel Chen,Information Engineering & Media,3,chen0098@e.ntu.edu.sg
-U2510099U,Denis Cai,Data Science & AI,1,cai0099@e.ntu.edu.sg
-U2210100V,Brett Yang,Computer Science,4,yang0100@e.ntu.edu.sg
+StudentID,Name,Year,Major
+U2310001A,Ye JianGuo,3,Information Engineering & Media
+U2310002B,Xiang JianGuo,3,Information Engineering & Media
+U2310003C,Leslie Luo,3,Computer Science
+U2510004D,Eileen Lin,1,Computer Science
+U2510005E,James Wang,1,Computer Science
+U2310006F,Georgina Wang,3,Information Engineering & Media
+U2410007G,Jayne Wang,2,Computer Engineering
+U2410008H,Cai XiaoHong,2,Information Engineering & Media
+U2510009I,Melissa Li,1,Computer Engineering
+U2210010J,Pamela Liu,4,Data Science & AI
+U2510011K,Song DanDan,1,Information Engineering & Media
+U2510012L,Bryan Li,1,Computer Science
+U2310013M,Huang XueMei,3,Computer Engineering
+U2510014N,Xu LiJuan,1,Information Engineering & Media
+U2210015O,Mohamed Wang,4,Computer Engineering
+U2410016P,Zhao JianHua,2,Computer Science
+U2210017Q,Zhang GuiYing,4,Computer Engineering
+U2210018R,Georgina Shao,4,Data Science & AI
+U2210019S,He DanDan,4,Computer Engineering
+U2410020T,Dai JianJun,2,Computer Engineering
+U2310021U,Wang LiHua,3,Information Engineering & Media
+U2210022V,He GuiFang,4,Computer Science
+U2310023W,Louis Jiang,3,Computer Engineering
+U2210024X,Chen XiuFang,4,Information Engineering & Media
+U2210025Y,Elaine Huang,4,Computer Engineering
+U2210026Z,Ni XiaoHong,4,Information Engineering & Media
+U2210027A,Wu GuiZhi,4,Computer Engineering
+U2410028B,Yvonne Wang,2,Data Science & AI
+U2210029C,Xin JianPing,4,Data Science & AI
+U2410030D,Pamela Cui,2,Computer Science
+U2310031E,Laura Liu,3,Computer Engineering
+U2310032F,Ban GuiFang,3,Information Engineering & Media
+U2310033G,Joanna Feng,3,Computer Science
+U2210034H,Wang XiuYing,4,Information Engineering & Media
+U2210035I,Sara OuYang,4,Computer Science
+U2410036J,Zhang GuiYing,2,Information Engineering & Media
+U2410037K,Anthony Jia,2,Computer Science
+U2210038L,Li XiuMei,4,Data Science & AI
+U2410039M,Luo TingTing,2,Information Engineering & Media
+U2510040N,Janet Wang,1,Computer Engineering
+U2510041O,Helen Shi,1,Data Science & AI
+U2510042P,Bao JianJun,1,Data Science & AI
+U2510043Q,Zhu YuYing,1,Information Engineering & Media
+U2410044R,Wang LiHua,2,Information Engineering & Media
+U2310045S,Ian Yang,3,Computer Engineering
+U2310046T,Tang XiuRong,3,Computer Engineering
+U2510047U,Christine Huang,1,Information Engineering & Media
+U2310048V,Wang GuiYing,3,Information Engineering & Media
+U2310049W,Hazel Meng,3,Information Engineering & Media
+U2510050X,Ding GuiFang,1,Computer Engineering
+U2410051Y,Hollie Huang,2,Data Science & AI
+U2410052Z,Wang JianJun,2,Computer Science
+U2310053A,Wei GuiHua,3,Data Science & AI
+U2310054B,Tan XueMei,3,Information Engineering & Media
+U2210055C,Kate Liu,4,Computer Science
+U2310056D,Ashleigh Yang,3,Data Science & AI
+U2310057E,Shaun Li,3,Computer Engineering
+U2410058F,Hu TingTing,2,Data Science & AI
+U2210059G,Hugh Guo,4,Data Science & AI
+U2310060H,Christopher Huang,3,Data Science & AI
+U2510061I,Tina Han,1,Information Engineering & Media
+U2510062J,Lian GuiXiang,1,Information Engineering & Media
+U2410063K,Owen Dai,2,Information Engineering & Media
+U2410064L,Du JianGuo,2,Computer Science
+U2310065M,Michelle Qin,3,Computer Engineering
+U2210066N,Feng YuLan,4,Data Science & AI
+U2410067O,Guo XiuHua,2,Information Engineering & Media
+U2510068P,Cao HongXia,1,Information Engineering & Media
+U2210069Q,Deng GuiHua,4,Information Engineering & Media
+U2210070R,Kelly Lu,4,Computer Science
+U2310071S,Joan Zhao,3,Computer Science
+U2510072T,Chen HongXia,1,Data Science & AI
+U2310073U,Mo JianHua,3,Computer Science
+U2510074V,Geraldine Xian,1,Data Science & AI
+U2310075W,Lu LiLi,3,Computer Engineering
+U2310076X,Carly Bai,3,Information Engineering & Media
+U2510077Y,Zhou DongMei,1,Data Science & AI
+U2310078Z,Josephine Zhong,3,Computer Science
+U2510079A,Keith Peng,1,Computer Science
+U2410080B,Mark Li,2,Computer Science
+U2410081C,Lei YuYing,2,Computer Science
+U2210082D,Ceng XiuLan,4,Data Science & AI
+U2510083E,Liu ShuHua,1,Computer Science
+U2210084F,Zhu GuiHua,4,Computer Science
+U2310085G,Li ShuZhen,3,Computer Science
+U2210086H,Liu ShuLan,4,Data Science & AI
+U2210087I,Ross Li,4,Computer Engineering
+U2510088J,Joel Zhao,1,Computer Science
+U2210089K,Cheng GuiHua,4,Information Engineering & Media
+U2510090L,Amy Wang,1,Information Engineering & Media
+U2210091M,Ding XiaoHong,4,Computer Engineering
+U2510092N,Ronald Liu,1,Computer Engineering
+U2510093O,Yang GuiRong,1,Information Engineering & Media
+U2510094P,Ma HaiYan,1,Computer Engineering
+U2410095Q,Zhang JianGuo,2,Computer Engineering
+U2510096R,Yin JianJun,1,Computer Science
+U2410097S,Lauren Zhu,2,Computer Science
+U2310098T,Samuel Chen,3,Information Engineering & Media
+U2510099U,Denis Cai,1,Data Science & AI
+U2210100V,Brett Yang,4,Computer Science

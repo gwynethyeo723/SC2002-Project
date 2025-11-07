@@ -1,26 +1,26 @@
-CompanyRepID,Name,CompanyName,Department,Position,Email,Status
-edward.stevens@sutton-williams.com,Edward Stevens,Sutton-Williams,Human Resources,Executive,edward.stevens@sutton-williams.com,Pending
-gary.morales@cooke-barry.com,Gary Morales,Cooke-Barry,Administration,Assistant,gary.morales@cooke-barry.com,Pending
-nicholas.marquez@wilkins-lara.com,Nicholas Marquez,Wilkins-Lara,Sales,Specialist,nicholas.marquez@wilkins-lara.com,Pending
-travis.barker@gilbert.com,Travis Barker,"Gilbert, Daugherty and Jones",Marketing,Assistant,travis.barker@gilbert.com,Pending
-lisa.williamson@woods.com,Lisa Williamson,Woods Group,Finance,Manager,lisa.williamson@woods.com,Pending
-ann.vaughn@sutton-williams.com,Ann Vaughn,Sutton-Williams,Sales,Executive,ann.vaughn@sutton-williams.com,Pending
-jose.barton@gregory.com,Jose Barton,Gregory and Sons,Legal,Assistant,jose.barton@gregory.com,Pending
-tammy.mora@gilbert.com,Tammy Mora,"Gilbert, Daugherty and Jones",Administration,Consultant,tammy.mora@gilbert.com,Pending
-eric.thomas@proctor.com,Eric Thomas,Proctor and Sons,Sales,Consultant,eric.thomas@proctor.com,Pending
-thomas.gomez@wilkins-lara.com,Thomas Gomez,Wilkins-Lara,Human Resources,Assistant,thomas.gomez@wilkins-lara.com,Pending
-christian.holland@proctor.com,Christian Holland,Proctor and Sons,Finance,Executive,christian.holland@proctor.com,Pending
-jennifer.reynolds@woods.com,Jennifer Reynolds,Woods Group,Human Resources,Specialist,jennifer.reynolds@woods.com,Pending
-shannon.williams@gilbert.com,Shannon Williams,"Gilbert, Daugherty and Jones",Finance,Specialist,shannon.williams@gilbert.com,Pending
-dylan.price@woods.com,Dylan Price,Woods Group,Customer Support,Manager,dylan.price@woods.com,Pending
-edward.webb@wilkins-lara.com,Edward Webb,Wilkins-Lara,Engineering,Coordinator,edward.webb@wilkins-lara.com,Pending
-nathan.tanner@cooke-barry.com,Nathan Tanner,Cooke-Barry,Human Resources,Analyst,nathan.tanner@cooke-barry.com,Pending
-jason.shelton.iii@proctor.com,Jason Shelton III,Proctor and Sons,Operations,Analyst,jason.shelton.iii@proctor.com,Pending
-frank.beasley@sutton-williams.com,Frank Beasley,Sutton-Williams,Sales,Consultant,frank.beasley@sutton-williams.com,Pending
-brandi.mccormick@schmidt.com,Brandi Mccormick,"Schmidt, Tran and Campbell",Customer Support,Consultant,brandi.mccormick@schmidt.com,Pending
-eric.robinson@schmidt.com,Eric Robinson,"Schmidt, Tran and Campbell",Operations,Analyst,eric.robinson@schmidt.com,Pending
-keith.fox@davis.com,Keith Fox,"Davis, Cummings and Moore",Legal,Specialist,keith.fox@davis.com,Pending
-yvonne.stevenson@allen.com,Yvonne Stevenson,"Allen, Smith and Martinez",Legal,Specialist,yvonne.stevenson@allen.com,Pending
-jackie.sutton@gregory.com,Jackie Sutton,Gregory and Sons,Legal,Coordinator,jackie.sutton@gregory.com,Pending
-corey.evans@schmidt.com,Corey Evans,"Schmidt, Tran and Campbell",Sales,Coordinator,corey.evans@schmidt.com,Pending
-russell.schultz@davis.com,Russell Schultz,"Davis, Cummings and Moore",Sales,Assistant,russell.schultz@davis.com,Pending
+Email,Name,CompanyName,Department,Position
+edward.stevens@sutton-williams.com,Edward Stevens,Sutton-Williams,Human Resources,Executive
+gary.morales@cooke-barry.com,Gary Morales,Cooke-Barry,Administration,Assistant
+nicholas.marquez@wilkins-lara.com,Nicholas Marquez,Wilkins-Lara,Sales,Specialist
+travis.barker@gilbert.com,Travis Barker,"Gilbert, Daugherty and Jones",Marketing,Assistant
+lisa.williamson@woods.com,Lisa Williamson,Woods Group,Finance,Manager
+ann.vaughn@sutton-williams.com,Ann Vaughn,Sutton-Williams,Sales,Executive
+jose.barton@gregory.com,Jose Barton,Gregory and Sons,Legal,Assistant
+tammy.mora@gilbert.com,Tammy Mora,"Gilbert, Daugherty and Jones",Administration,Consultant
+eric.thomas@proctor.com,Eric Thomas,Proctor and Sons,Sales,Consultant
+thomas.gomez@wilkins-lara.com,Thomas Gomez,Wilkins-Lara,Human Resources,Assistant
+christian.holland@proctor.com,Christian Holland,Proctor and Sons,Finance,Executive
+jennifer.reynolds@woods.com,Jennifer Reynolds,Woods Group,Human Resources,Specialist
+shannon.williams@gilbert.com,Shannon Williams,"Gilbert, Daugherty and Jones",Finance,Specialist
+dylan.price@woods.com,Dylan Price,Woods Group,Customer Support,Manager
+edward.webb@wilkins-lara.com,Edward Webb,Wilkins-Lara,Engineering,Coordinator
+nathan.tanner@cooke-barry.com,Nathan Tanner,Cooke-Barry,Human Resources,Analyst
+jason.shelton.iii@proctor.com,Jason Shelton III,Proctor and Sons,Operations,Analyst
+frank.beasley@sutton-williams.com,Frank Beasley,Sutton-Williams,Sales,Consultant
+brandi.mccormick@schmidt.com,Brandi Mccormick,"Schmidt, Tran and Campbell",Customer Support,Consultant
+eric.robinson@schmidt.com,Eric Robinson,"Schmidt, Tran and Campbell",Operations,Analyst
+keith.fox@davis.com,Keith Fox,"Davis, Cummings and Moore",Legal,Specialist
+yvonne.stevenson@allen.com,Yvonne Stevenson,"Allen, Smith and Martinez",Legal,Specialist
+jackie.sutton@gregory.com,Jackie Sutton,Gregory and Sons,Legal,Coordinator
+corey.evans@schmidt.com,Corey Evans,"Schmidt, Tran and Campbell",Sales,Coordinator
+russell.schultz@davis.com,Russell Schultz,"Davis, Cummings and Moore",Sales,Assistant
