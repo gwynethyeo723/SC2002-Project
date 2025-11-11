@@ -137,9 +137,17 @@ class Student extends User {
     public int getYear() {
         return year;
     }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
     
     public String getMajor() {
         return major;
+    }
+
+    public void setMajor(String major){
+        this.major = major;
     }
 
     // // Getter for appliedInternships
