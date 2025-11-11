@@ -93,7 +93,7 @@ public class ApplicationController {
 
     
     // 3. Career center staff to approve or reject a student's withdrawal request
-    public void reviewWithdrawal(CareerCenterStaff staff, Student student, Internship internship, boolean approve) {
+    public static void reviewWithdrawal(CareerCenterStaff staff, Student student, Internship internship, boolean approve) {
         if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;

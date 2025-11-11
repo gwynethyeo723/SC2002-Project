@@ -74,7 +74,7 @@ public class InternshipController {
     }
 
     // Approve or reject an internship created by a CompanyRep
-    public void reviewInternship(CareerCenterStaff staff, Internship internship, boolean approve) {
+    public static void reviewInternship(CareerCenterStaff staff, Internship internship, boolean approve) {
         if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;
@@ -156,7 +156,7 @@ public class InternshipController {
     }
 
     // Generate a report on internships (example: by status)
-    public void generateInternshipReport(CareerCenterStaff staff, String filterStatus, String filterMajor, String filterLevel) {
+    public static void generateInternshipReport(CareerCenterStaff staff, String filterStatus, String filterMajor, String filterLevel) {
 
         if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
