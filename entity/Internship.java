@@ -1,4 +1,8 @@
+package entity;
 import java.util.*;
+
+import enumeration.InternshipLevel;
+import enumeration.InternshipStatus;
 
 // ----- This class defines the attributes relevant to each Internship. -----//
 // ----- Relevant attributes include Title, Description, Company, Representative, Level, Preferred Major, Total Slots, Remaining Slots, Visibility, Status, and Opening and Closing Dates. -----//

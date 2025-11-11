@@ -1,4 +1,6 @@
-abstract class User {
+package entity;
+
+public abstract class User {
     protected String userId;
     protected String name;
     private String password;

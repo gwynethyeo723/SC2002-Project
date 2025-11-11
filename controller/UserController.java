@@ -1,3 +1,7 @@
+package controller;
+
+import entity.User;
+
 public class UserController {
     public static boolean login(User user, String inputUserId, String password) {
         if (!user.getUserId().equals(inputUserId)) {

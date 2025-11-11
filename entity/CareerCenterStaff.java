@@ -1,4 +1,7 @@
+package entity;
 import java.util.*;
+
+import enumeration.CareerCenterStaffStatus;
 
 // ----- This class defines the attributes relevant to the Career Center Staff. -----//
 // ----- Relevant attributes include UserID and Name (from User parent class) and Department. -----//
@@ -143,4 +146,3 @@ public class CareerCenterStaff extends User {
     //             + " | Open/Closed: " + openStatus);
     //     }
     // }
-}

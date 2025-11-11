@@ -1,4 +1,7 @@
+package entity;
 import java.time.LocalDate;
+
+import enumeration.ApplicationStatus;
 
 // ----- This class defines the attributes relevant to each Application. -----//
 // ----- Relevant attributes include Student, Internship, Status and Application Date. -----//

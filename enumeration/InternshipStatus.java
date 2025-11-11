@@ -1,3 +1,5 @@
+package enumeration;
+
 public enum InternshipStatus {
     PENDING("Pending"),
     APPROVED("Approved"),

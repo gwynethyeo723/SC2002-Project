@@ -1,3 +1,4 @@
+package entity;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 // ----- This class defines the attributes relevant to the Student user. -----//
 // ----- Relevant attributes include Year of Study and  Major. -----//
 
-class Student extends User {
+public class Student extends User {
     private int year;
     private String major;
     // private Map<Internship, ApplicationStatus> appliedInternships;

@@ -1,3 +1,4 @@
+package enumeration;
 public enum ApplicationStatus {
     PENDING("Pending"),
     APPROVED("Approved"),
