@@ -1,5 +1,4 @@
 package entity;
-import java.util.*;
 
 
 // ----- This class defines the attributes relevant to the Career Center Staff. -----//
@@ -19,6 +18,8 @@ public class CareerCenterStaff extends User {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+
 }
 
 
