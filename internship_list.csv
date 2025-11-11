@@ -1,0 +1,51 @@
+﻿Title,Description,Company,CompanyRepID,InternshipLevel,PreferredMajor,TotalSlots,OpeningDate,ClosingDate
+Title 1,Description 1,Sutton-Williams,edward.stevens@sutton-williams.com,INTERMEDIATE,Computer Science,3,2025-01-01,2025-12-31
+Title 2,Description 2,Sutton-Williams,edward.stevens@sutton-williams.com,BASIC,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 3,Description 3,Sutton-Williams,ann.vaughn@sutton-williams.com,BASIC,Computer Science,3,2025-01-01,2025-12-31
+Title 4,Description 4,Sutton-Williams,frank.beasley@sutton-williams.com,BASIC,Information Engineering & Media,6,2025-01-01,2025-12-31
+Title 5,Description 5,Sutton-Williams,frank.beasley@sutton-williams.com,ADVANCED,Computer Engineering,5,2025-01-01,2025-12-31
+Title 6,Description 6,Cooke-Barry,gary.morales@cooke-barry.com,ADVANCED,Computer Science,5,2025-01-01,2025-12-31
+Title 7,Description 7,Cooke-Barry,gary.morales@cooke-barry.com,BASIC,Data Science & AI,2,2025-01-01,2025-12-31
+Title 8,Description 8,Cooke-Barry,nathan.tanner@cooke-barry.com,ADVANCED,Computer Engineering,9,2025-01-01,2025-12-31
+Title 9,Description 9,Cooke-Barry,nathan.tanner@cooke-barry.com,INTERMEDIATE,Information Engineering & Media,10,2025-01-01,2025-12-31
+Title 10,Description 10,Cooke-Barry,nathan.tanner@cooke-barry.com,INTERMEDIATE,Computer Engineering,7,2025-01-01,2025-12-31
+Title 11,Description 11,Wilkins-Lara,nicholas.marquez@wilkins-lara.com,INTERMEDIATE,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 12,Description 12,Wilkins-Lara,nicholas.marquez@wilkins-lara.com,BASIC,Data Science & AI,6,2025-01-01,2025-12-31
+Title 13,Description 13,Wilkins-Lara,thomas.gomez@wilkins-lara.com,BASIC,Data Science & AI,7,2025-01-01,2025-12-31
+Title 14,Description 14,Wilkins-Lara,edward.webb@wilkins-lara.com,ADVANCED,Computer Science,2,2025-01-01,2025-12-31
+Title 15,Description 15,Wilkins-Lara,edward.webb@wilkins-lara.com,ADVANCED,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 16,Description 16,"Gilbert, Daugherty and Jones",travis.barker@gilbert.com,ADVANCED,Data Science & AI,3,2025-01-01,2025-12-31
+Title 17,Description 17,"Gilbert, Daugherty and Jones",travis.barker@gilbert.com,INTERMEDIATE,Information Engineering & Media,6,2025-01-01,2025-12-31
+Title 18,Description 18,"Gilbert, Daugherty and Jones",tammy.mora@gilbert.com,BASIC,Data Science & AI,3,2025-01-01,2025-12-31
+Title 19,Description 19,"Gilbert, Daugherty and Jones",tammy.mora@gilbert.com,INTERMEDIATE,Computer Science,2,2025-01-01,2025-12-31
+Title 20,Description 20,"Gilbert, Daugherty and Jones",shannon.williams@gilbert.com,INTERMEDIATE,Computer Science,4,2025-01-01,2025-12-31
+Title 21,Description 21,Woods Group,lisa.williamson@woods.com,ADVANCED,Information Engineering & Media,2,2025-01-01,2025-12-31
+Title 22,Description 22,Woods Group,lisa.williamson@woods.com,ADVANCED,Computer Science,3,2025-01-01,2025-12-31
+Title 23,Description 23,Woods Group,jennifer.reynolds@woods.com,BASIC,Information Engineering & Media,10,2025-01-01,2025-12-31
+Title 24,Description 24,Woods Group,dylan.price@woods.com,INTERMEDIATE,Information Engineering & Media,8,2025-01-01,2025-12-31
+Title 25,Description 25,Woods Group,dylan.price@woods.com,ADVANCED,Data Science & AI,4,2025-01-01,2025-12-31
+Title 26,Description 26,Gregory and Sons,jose.barton@gregory.com,ADVANCED,Computer Engineering,5,2025-01-01,2025-12-31
+Title 27,Description 27,Gregory and Sons,jose.barton@gregory.com,ADVANCED,Data Science & AI,7,2025-01-01,2025-12-31
+Title 28,Description 28,Gregory and Sons,jackie.sutton@gregory.com,BASIC,Computer Engineering,8,2025-01-01,2025-12-31
+Title 29,Description 29,Gregory and Sons,jackie.sutton@gregory.com,BASIC,Computer Science,3,2025-01-01,2025-12-31
+Title 30,Description 30,Gregory and Sons,jackie.sutton@gregory.com,ADVANCED,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 31,Description 31,Proctor and Sons,eric.thomas@proctor.com,INTERMEDIATE,Data Science & AI,9,2025-01-01,2025-12-31
+Title 32,Description 32,Proctor and Sons,christian.holland@proctor.com,ADVANCED,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 33,Description 33,Proctor and Sons,christian.holland@proctor.com,INTERMEDIATE,Computer Science,4,2025-01-01,2025-12-31
+Title 34,Description 34,Proctor and Sons,jason.shelton.iii@proctor.com,ADVANCED,Computer Science,5,2025-01-01,2025-12-31
+Title 35,Description 35,Proctor and Sons,jason.shelton.iii@proctor.com,BASIC,Computer Engineering,3,2025-01-01,2025-12-31
+Title 36,Description 36,"Schmidt, Tran and Campbell",brandi.mccormick@schmidt.com,BASIC,Data Science & AI,7,2025-01-01,2025-12-31
+Title 37,Description 37,"Schmidt, Tran and Campbell",eric.robinson@schmidt.com,BASIC,Computer Engineering,4,2025-01-01,2025-12-31
+Title 38,Description 38,"Schmidt, Tran and Campbell",eric.robinson@schmidt.com,INTERMEDIATE,Data Science & AI,4,2025-01-01,2025-12-31
+Title 39,Description 39,"Schmidt, Tran and Campbell",corey.evans@schmidt.com,BASIC,Computer Engineering,10,2025-01-01,2025-12-31
+Title 40,Description 40,"Schmidt, Tran and Campbell",corey.evans@schmidt.com,BASIC,Information Engineering & Media,5,2025-01-01,2025-12-31
+Title 41,Description 41,"Davis, Cummings and Moore",keith.fox@davis.com,INTERMEDIATE,Information Engineering & Media,5,2025-01-01,2025-12-31
+Title 42,Description 42,"Davis, Cummings and Moore",keith.fox@davis.com,ADVANCED,Information Engineering & Media,3,2025-01-01,2025-12-31
+Title 43,Description 43,"Davis, Cummings and Moore",keith.fox@davis.com,ADVANCED,Information Engineering & Media,5,2025-01-01,2025-12-31
+Title 44,Description 44,"Davis, Cummings and Moore",russell.schultz@davis.com,INTERMEDIATE,Computer Engineering,2,2025-01-01,2025-12-31
+Title 45,Description 45,"Davis, Cummings and Moore",russell.schultz@davis.com,ADVANCED,Computer Engineering,3,2025-01-01,2025-12-31
+Title 46,Description 46,"Allen, Smith and Martinez",yvonne.stevenson@allen.com,BASIC,Data Science & AI,9,2025-01-01,2025-12-31
+Title 47,Description 47,"Allen, Smith and Martinez",yvonne.stevenson@allen.com,INTERMEDIATE,Information Engineering & Media,6,2025-01-01,2025-12-31
+Title 48,Description 48,"Allen, Smith and Martinez",yvonne.stevenson@allen.com,INTERMEDIATE,Information Engineering & Media,6,2025-01-01,2025-12-31
+Title 49,Description 49,"Allen, Smith and Martinez",yvonne.stevenson@allen.com,BASIC,Computer Science,9,2025-01-01,2025-12-31
+Title 50,Description 50,"Allen, Smith and Martinez",yvonne.stevenson@allen.com,ADVANCED,Computer Engineering,5,2025-01-01,2025-12-31

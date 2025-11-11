@@ -4,7 +4,8 @@ public enum ApplicationStatus {
     ACCEPTED_BY_COMPANY_REPRESENTATIVE("Accepted by Company Representative"),
     ACCEPTED_BY_STUDENT("Accepted by Student"),
     PENDING_WITHDRAWAL("Pending Withdrawal"),
-    WITHDRAWN("Withdrawn");
+    WITHDRAWN("Withdrawn"),
+    DELETED("Deleted");
 
     private final String displayName;
 

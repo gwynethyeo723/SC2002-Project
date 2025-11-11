@@ -60,9 +60,6 @@ public class InternshipController {
             app.setStatus(ApplicationStatus.DELETED);
         }
 
-        // Remove from global internship list
-        GlobalInternshipList.removeInternship(internship);
-
         System.out.println("Internship '" + internship.getTitle() + "' deleted successfully.");
     }
 }
