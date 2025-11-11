@@ -40,9 +40,9 @@ public class Main {
                 continue;
             }
 
-            if (!loggedInUser.login(id, password)) {
-                continue;
-            }
+            // if (!loggedInUser.login(id, password)) {
+            //     continue;
+            // }
 
             // Show menu based on role
             if (loggedInUser instanceof Student student) {

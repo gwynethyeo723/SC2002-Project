@@ -83,4 +83,6 @@ public abstract class User {
         isLoggedIn = loggedIn;
     }
 
+    protected abstract boolean login(String id, String password2);
+
 }
