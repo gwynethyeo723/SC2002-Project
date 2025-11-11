@@ -3,6 +3,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import entity.CompanyRep;
+import controller.InternshipController;
+import enumeration.InternshipLevel;
+import entity.Internship;
+import entity.GlobalInternshipList;
+import controller.UserController;
+
+
 public class CompanyRepMenu {
 
     private static final Scanner sc = new Scanner(System.in);
