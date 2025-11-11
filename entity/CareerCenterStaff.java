@@ -146,7 +146,3 @@ public class CareerCenterStaff extends User {
     //             + " | Open/Closed: " + openStatus);
     //     }
     // }
-<<<<<<< HEAD:CareerCenterStaff.java
-// }
-=======
->>>>>>> 46899f33eeb63d7f6e70024ab7611766afcd6532:entity/CareerCenterStaff.java
