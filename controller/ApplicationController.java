@@ -100,7 +100,9 @@ public class ApplicationController {
         }
 
         // First check if the student actually requested withdrawal
-        if (!student.isPendingWithdrawal()) {
+        boolean isPendingWithdrawal = GlobalApplicationList.getByInternshipAndStudent(internship, student).stream()
+        .anyMatch(app -> app.getStatus() == ApplicationStatus.PENDING_WITHDRAWAL);
+        if (!isPendingWithdrawal) {
             System.out.println(student.getName() + " has not requested withdrawal for this internship.");
             return;
         }
