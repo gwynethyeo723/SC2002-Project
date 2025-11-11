@@ -6,7 +6,7 @@ import entity.Application;
 import enumeration.ApplicationStatus;
 import entity.CareerCenterStaff;
 import entity.CompanyRep;
-import entity.GlobalApplicationList;
+import database.GlobalApplicationList;
 import entity.Internship;
 import enumeration.InternshipLevel;
 import enumeration.InternshipStatus;

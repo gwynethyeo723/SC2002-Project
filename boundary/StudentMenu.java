@@ -4,11 +4,11 @@ import java.util.Scanner;
 import entity.Student;
 import entity.Internship;
 import controller.UserController;
+import database.GlobalInternshipList;
 import controller.InternshipController;
 import controller.ApplicationController;
 import entity.Application;
-import entity.GlobalInternshipList;
-import entity.GlobalApplicationList;
+import database.GlobalApplicationList;
 import enumeration.ApplicationStatus;
 
 public class StudentMenu {

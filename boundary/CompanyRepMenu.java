@@ -7,8 +7,8 @@ import entity.CompanyRep;
 import controller.InternshipController;
 import enumeration.InternshipLevel;
 import entity.Internship;
-import entity.GlobalInternshipList;
 import controller.UserController;
+import database.GlobalInternshipList;
 
 
 public class CompanyRepMenu {

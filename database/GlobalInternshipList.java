@@ -1,9 +1,12 @@
-package entity;
+package database;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import entity.Company;
+import entity.CompanyRep;
+import entity.Internship;
 import enumeration.InternshipStatus;
 
 public class GlobalInternshipList {

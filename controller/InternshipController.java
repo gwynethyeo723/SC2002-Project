@@ -3,13 +3,13 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import database.GlobalInternshipList;
 import entity.Company;
 import entity.Application;
 import enumeration.ApplicationStatus;
 import entity.CareerCenterStaff;
 import entity.CompanyRep;
-import entity.GlobalApplicationList;
-import entity.GlobalInternshipList;
+import database.GlobalApplicationList;
 import entity.Internship;
 import enumeration.InternshipLevel;
 import enumeration.InternshipStatus;
