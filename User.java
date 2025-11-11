@@ -9,7 +9,7 @@ abstract class User {
     public User(String userId, String name) {
         this.userId = userId;
         this.name = name;
-        this.password = "password";
+        this.password = "password"; // default password
     }
 
     // public boolean login(String inputUserId, String password) {
@@ -72,4 +72,13 @@ abstract class User {
     public void setPassword(String password){
         this.password = password;
     }
+
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        isLoggedIn = loggedIn;
+    }
+
 }
