@@ -1,5 +1,7 @@
 import java.util.*;
 
+// ----- This class defines the attributes relevant to the Career Center Staff. -----//
+// ----- Relevant attributes include UserID and Name (from User parent class) and Department. -----//
 public class CareerCenterStaff extends User {
     private String department;
     private CareerCenterStaffStatus status;

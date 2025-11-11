@@ -1,5 +1,8 @@
 import java.time.LocalDate;
 
+// ----- This class defines the attributes relevant to each Application. -----//
+// ----- Relevant attributes include Student, Internship, Status and Application Date. -----//
+
 public class Application {
     private Student student;
     private Internship internship;
