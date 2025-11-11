@@ -97,24 +97,23 @@ public class ApplicationController {
         }
 
         if (approve) {
-            // Mark internship as withdrawn in appliedInternships if it exists
-            if (student.getAppliedInternships().containsKey(internship)) {
-                student.getAppliedInternships().put(internship, ApplicationStatus.WITHDRAWN);
-            }
+            // Get the application for this student and internship
+            GlobalApplicationList.getByInternshipAndStudent(internship, student).stream()
+                .findFirst()
+                .ifPresent(app -> {
+                    // Update the application status
+                    app.setStatus(ApplicationStatus.WITHDRAWN);
 
-            // Clear accepted internship if it matches
-            if (student.getAcceptedInternship() != null && student.getAcceptedInternship().equals(internship)) {
-                student.setAcceptedInternship(null);
-                InternshipController.increaseSlot(internship); // return slot if it was accepted
-            }
+                    // If the internship was accepted by the student, return the slot
+                    if (app.getStatus() == ApplicationStatus.ACCEPTED_BY_STUDENT) {
+                        InternshipController.increaseSlot(internship);
+                    }
+                });
 
             System.out.println("Withdrawal approved for " + student.getName() + " from " + internship.getTitle());
         } else {
             System.out.println("Withdrawal rejected for " + student.getName() + " from " + internship.getTitle());
         }
-
-        // Reset pendingWithdrawal flag
-        student.setPendingWithdrawal(false);
     }
 
     // 4. Student accepts an internship (after being approved by company)
