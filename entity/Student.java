@@ -141,4 +141,13 @@ public class Student extends User {
     // public void setAcceptedInternship(Internship acceptedInternship) {this.acceptedInternship = acceptedInternship;}
     // public boolean isPendingWithdrawal() {return pendingWithdrawal;}
     // public void setPendingWithdrawal(boolean pendingWithdrawal) {this.pendingWithdrawal = pendingWithdrawal;}
+
+    @Override
+    public boolean login(String id, String password2) {
+    if (this.userId.equals(id) && this.getPassword().equals(password2)) {
+        this.setLoggedIn(true);
+        return true;
+        }
+    return false;
+    }
 }

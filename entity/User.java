@@ -3,7 +3,7 @@ package entity;
 public abstract class User {
     protected String userId;
     protected String name;
-    private String password;
+    protected String password;
     protected boolean isLoggedIn = false; // default false
 
     // ----- This class defines the attributes relevant to the User abstract class. -----//
@@ -83,6 +83,6 @@ public abstract class User {
         isLoggedIn = loggedIn;
     }
 
-    protected abstract boolean login(String id, String password2);
+    public abstract boolean login(String id, String password2);
 
 }

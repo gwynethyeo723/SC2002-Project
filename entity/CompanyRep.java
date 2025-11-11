@@ -58,6 +58,12 @@ public class CompanyRep extends User {
         this.status = status;
     }
 
+    @Override
+    public boolean login(String id, String password2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'login'");
+    }
+
     // Create internship with all required fields
     // public Internship createInternship(String title, String description, String level, 
     //                                String preferredMajor, int slots, Date openingDate, Date closingDate) {

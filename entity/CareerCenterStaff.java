@@ -17,6 +17,12 @@ public class CareerCenterStaff extends User {
     public void setDepartment(String department) {
         this.department = department;
     }
+
+    @Override
+    public boolean login(String id, String password2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'login'");
+    }
 }
 
 

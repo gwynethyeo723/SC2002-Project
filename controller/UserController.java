@@ -1,22 +1,47 @@
 package controller;
 
+import java.util.List;
+
 import entity.User;
 
 public class UserController {
-    public static boolean login(User user, String inputUserId, String password) {
-        if (!user.getUserId().equals(inputUserId)) {
+    // public static boolean login(User user, String inputUserId, String password) {
+    //     if (!user.getUserId().equals(inputUserId)) {
+    //         System.out.println("User ID does not exist.");
+    //         return false;
+    //     }
+
+    //     if (!user.getPassword().equals(password)) {
+    //         System.out.println("Incorrect password.");
+    //         return false;
+    //     }
+
+    //     user.setLoggedIn(true); // login successful 
+    //     System.out.println("Login successful for " + user.getName());
+    //     return true;
+    // }
+    public static User login(List<User> users, String inputUserId, String password) {
+        // Search for the user by ID
+        User user = users.stream()
+                         .filter(u -> u.getUserId().equals(inputUserId))
+                         .findFirst()
+                         .orElse(null);
+
+        if (user == null) {
             System.out.println("User ID does not exist.");
-            return false;
+            return null;
         }
 
+        // Check password
         if (!user.getPassword().equals(password)) {
             System.out.println("Incorrect password.");
-            return false;
+            return null;
         }
 
-        user.setLoggedIn(true); // login successful 
+        // Successful login
+        user.setLoggedIn(true);
         System.out.println("Login successful for " + user.getName());
-        return true;
+        return user;
     }
 
     public static void logout(User user) {
