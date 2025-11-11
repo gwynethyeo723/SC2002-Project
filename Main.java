@@ -1,21 +1,15 @@
 import java.io.*;
 import java.util.*;
-
-import database.GlobalInternshipList;
 import entity.CareerCenterStaff;
 import entity.CompanyRep;
-import entity.Internship;
 import entity.Student;
 import entity.User;
 import entity.Company;
-
-import java.text.SimpleDateFormat;
 
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static List<User> users = new ArrayList<>();
     static Map<String, Company> companyMap = new HashMap<>(); // temporary map for companies
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static void main(String[] args) {
         // Load data from CSV
@@ -114,15 +108,6 @@ public class Main {
             System.out.println("Students loaded.");
         } catch (Exception e) {
             System.out.println("Error loading students: " + e.getMessage());
-        }
-    }
-
-    private static Date parseDate(String input) {
-        try {
-            return sdf.parse(input);
-        } catch (Exception e) {
-            System.out.println("Invalid date format. Using today as fallback.");
-            return new Date();
         }
     }
 }
