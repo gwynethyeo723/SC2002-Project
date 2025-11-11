@@ -14,14 +14,11 @@ public class InternshipController {
         }
 
         // Limit to 5 internships per representative
-        long repCount = GlobalInternshipList.getAll().stream()
-                .filter(i -> i.getRepresentative().equals(rep))
-                .count();
-
-        if (repCount >= 5) {
-            System.out.println("Cannot create more than 5 internships per representative.");
-            return null;
-        }
+    long repCount = GlobalInternshipList.getByCompanyRep(rep).size();
+    if (repCount >= 5) {
+        System.out.println("Cannot create more than 5 internships per representative.");
+        return null;
+    }
 
         // Cap slots at 10
         if (slots > 10) slots = 10;
