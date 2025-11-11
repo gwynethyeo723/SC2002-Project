@@ -1,6 +1,5 @@
 package entity;
 
-
 // ----- This class defines the attributes relevant to the Career Center Staff. -----//
 // ----- Relevant attributes include UserID and Name (from User parent class) and Department. -----//
 public class CareerCenterStaff extends User {
@@ -18,8 +17,6 @@ public class CareerCenterStaff extends User {
     public void setDepartment(String department) {
         this.department = department;
     }
-
-
 }
 
 

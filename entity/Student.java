@@ -1,10 +1,4 @@
 package entity;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 // ----- This class defines the attributes relevant to the Student user. -----//
 // ----- Relevant attributes include Year of Study and  Major. -----//
