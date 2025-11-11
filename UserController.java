@@ -1,5 +1,5 @@
 public class UserController {
-    public boolean login(User user, String inputUserId, String password) {
+    public static boolean login(User user, String inputUserId, String password) {
         if (!user.getUserId().equals(inputUserId)) {
             System.out.println("User ID does not exist.");
             return false;
@@ -15,7 +15,7 @@ public class UserController {
         return true;
     }
 
-    public void logout(User user) {
+    public static void logout(User user) {
         if (user.isLoggedIn()) {
             user.setLoggedIn(false);
             System.out.println(user.getName() + " has logged out.");
@@ -24,7 +24,7 @@ public class UserController {
         }
     }
 
-    public boolean changePassword(User user, String oldPass, String newPass) {
+    public static boolean changePassword(User user, String oldPass, String newPass) {
         if (!user.isLoggedIn()) { // not logged in
             System.out.println("You must be logged in to perform this action.");
             return false;
