@@ -81,7 +81,7 @@ public class Internship {
     public int getTotalSlots() { return totalSlots; }
     public int getSlotsRemaining() { return slotsRemaining; }
     public InternshipStatus getStatus() { return status; }
-     public boolean getVisibility() {return visible;}
+    public boolean getVisibility() {return visible;}
     public void setStatus(InternshipStatus status) { this.status = status; }
     public Company getCompany() { return company; }
     public CompanyRep getRepresentative() { return representative; }

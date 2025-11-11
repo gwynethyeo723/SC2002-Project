@@ -80,7 +80,42 @@ public class ApplicationController {
         System.out.println(student.getName() + " has requested withdrawal from " + internship.getTitle());
     }
 
-    // 3. Student accepts an internship (after being approved by company)
+    
+    // 3. Career center staff to approve or reject a student's withdrawal request
+    public void reviewWithdrawal(CareerCenterStaff staff, Student student, Internship internship, boolean approve) {
+        if (!staff.isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+
+        // First check if the student actually requested withdrawal
+        if (!student.isPendingWithdrawal()) {
+            System.out.println(student.getName() + " has not requested withdrawal for this internship.");
+            return;
+        }
+
+        if (approve) {
+            // Mark internship as withdrawn in appliedInternships if it exists
+            if (student.getAppliedInternships().containsKey(internship)) {
+                student.getAppliedInternships().put(internship, ApplicationStatus.WITHDRAWN);
+            }
+
+            // Clear accepted internship if it matches
+            if (student.getAcceptedInternship() != null && student.getAcceptedInternship().equals(internship)) {
+                student.setAcceptedInternship(null);
+                InternshipController.increaseSlot(internship); // return slot if it was accepted
+            }
+
+            System.out.println("Withdrawal approved for " + student.getName() + " from " + internship.getTitle());
+        } else {
+            System.out.println("Withdrawal rejected for " + student.getName() + " from " + internship.getTitle());
+        }
+
+        // Reset pendingWithdrawal flag
+        student.setPendingWithdrawal(false);
+    }
+
+    // 4. Student accepts an internship (after being approved by company)
     public static void acceptInternship(Student student, Internship internship) {
         if (!student.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
@@ -107,7 +142,7 @@ public class ApplicationController {
         }
     }
 
-    // 4. Company representative accepts a student for an internship 
+    // 5. Company representative accepts a student for an internship 
     public static void acceptApplicationByCompanyRep(CompanyRep rep, Internship internship, Student student) {
         if (!rep.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");

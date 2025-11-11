@@ -10,16 +10,16 @@ class Student extends User {
     private int year;
     private String major;
     // private Map<Internship, ApplicationStatus> appliedInternships;
-    private Internship acceptedInternship;
-    private boolean pendingWithdrawal;
+    // private Internship acceptedInternship;
+    // private boolean pendingWithdrawal;
 
     public Student(String userId, String name, int year, String major) {
         super(userId, name);
         this.year = year;
         this.major = major;
         // this.appliedInternships = new HashMap<>();
-        this.acceptedInternship = null;
-        this.pendingWithdrawal = false;
+        // this.acceptedInternship = null;
+        // this.pendingWithdrawal = false;
     }
 
     // public List<Internship> viewAvailableInternships() {
@@ -134,40 +134,14 @@ class Student extends User {
     //     System.out.println(getName() + " has requested withdrawal from " + internship.getTitle());
     // }
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-    
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major){
-        this.major = major;
-    }
-
-    // // Getter for appliedInternships
-    // public Map<Internship, ApplicationStatus> getAppliedInternships() {
-    //     return appliedInternships;
-    // }
-
-    // public Internship getAcceptedInternship() {
-    //     return acceptedInternship;
-    // }
-
-    // public void setAcceptedInternship(Internship acceptedInternship) {
-    //     this.acceptedInternship = acceptedInternship;
-    // }
-
-    // public boolean isPendingWithdrawal() {
-    //     return pendingWithdrawal;
-    // }
-
-    // public void setPendingWithdrawal(boolean pendingWithdrawal) {
-    //     this.pendingWithdrawal = pendingWithdrawal;
-    // }
+    // Getters and Setters
+    public int getYear() {return year;}
+    public String getMajor() {return major;}
+    public void setYear(int year) {this.year = year;}
+    public void setMajor(String major){this.major = major;}
+    // public Map<Internship, ApplicationStatus> getAppliedInternships() {return appliedInternships;}
+    // public Internship getAcceptedInternship() {return acceptedInternship;}
+    // public void setAcceptedInternship(Internship acceptedInternship) {this.acceptedInternship = acceptedInternship;}
+    // public boolean isPendingWithdrawal() {return pendingWithdrawal;}
+    // public void setPendingWithdrawal(boolean pendingWithdrawal) {this.pendingWithdrawal = pendingWithdrawal;}
 }
