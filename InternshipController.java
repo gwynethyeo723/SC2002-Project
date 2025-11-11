@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -94,4 +95,37 @@ public class InternshipController {
             internship.setStatus(InternshipStatus.APPROVED); // reopen if previously full
         }
     }
+
+    public static List<Internship> viewAvailableInternships(Student student) {
+        if (!student.isLoggedIn()) {
+            System.out.println("You must be logged in to view available internships.");
+            return List.of();
+        }
+
+        LocalDate today = LocalDate.now();
+
+        // Filter internships that are visible, approved, not filled, and within application period
+        List<Internship> available = GlobalInternshipList.getAll().stream()
+                .filter(i -> i.getVisibility()
+                        && i.getStatus() == InternshipStatus.APPROVED
+                        && i.getSlotsRemaining() > 0
+                        && !i.getRepresentative().equals(student) // optionally filter out internships by student themselves
+                        && today.isAfter(i.getOpeningDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate().minusDays(1))
+                        && today.isBefore(i.getClosingDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate().plusDays(1))
+                )
+                .toList();
+
+        if (available.isEmpty()) {
+            System.out.println("No internships available for you at the moment.");
+        } else {
+            System.out.println("Available internships:");
+            for (Internship i : available) {
+                System.out.println("- " + i.getTitle() + " at " + i.getCompany().getName() +
+                                   " [" + i.getLevel() + ", Slots: " + i.getSlotsRemaining() + "]");
+            }
+        }
+
+        return available;
+    }
 }
+
