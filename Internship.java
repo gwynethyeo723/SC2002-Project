@@ -1,5 +1,7 @@
 import java.util.*;
 
+// ----- This class defines the attributes relevant to each Internship. -----//
+// ----- Relevant attributes include Title, Description, Company, Representative, Level, Preferred Major, Total Slots, Remaining Slots, Visibility, Status, and Opening and Closing Dates. -----//
 public class Internship {
     private String title;
     private String description;
