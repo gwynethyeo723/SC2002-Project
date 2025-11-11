@@ -1,5 +1,8 @@
+package entity;
 import java.util.Date;
 import java.util.List;
+
+import enumeration.CompanyRepStatus;
 
 // ----- This class defines the attributes relevant to each Company Representative. -----//
 // ----- Relevant attributes include Company, Company Representative Application Status (one-time at the start), Department, Position and Email. -----//

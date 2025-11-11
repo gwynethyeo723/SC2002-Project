@@ -1,10 +1,12 @@
+package entity;
+
 import java.util.List;
 import java.util.ArrayList;
 
 
 // ----- This class defines the attributes relevant to each Company. -----//
 // ----- Relevant attributes include Company Name. -----//
-class Company {
+public class Company {
     private String name;
     // private List<CompanyRep> representatives;
     // private List<Internship> internshipsOffered;

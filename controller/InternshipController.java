@@ -1,6 +1,19 @@
+package controller;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
+import entity.Company;
+import entity.Application;
+import enumeration.ApplicationStatus;
+import entity.CareerCenterStaff;
+import entity.CompanyRep;
+import entity.GlobalApplicationList;
+import entity.GlobalInternshipList;
+import entity.Internship;
+import enumeration.InternshipLevel;
+import enumeration.InternshipStatus;
+import entity.Student;
 
 public class InternshipController {
 
@@ -62,7 +75,7 @@ public class InternshipController {
 
     // Approve or reject an internship created by a CompanyRep
     public void reviewInternship(CompanyRep rep, Internship internship, boolean approve) {
-        if (!rep.isLoggedIn) {
+        if (!rep.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
@@ -145,7 +158,7 @@ public class InternshipController {
     // Generate a report on internships (example: by status)
     public void generateInternshipReport(CareerCenterStaff staff, String filterStatus, String filterMajor, String filterLevel) {
 
-        if (!staff.isLoggedIn) {
+        if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;
         }

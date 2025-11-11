@@ -1,5 +1,14 @@
 import java.io.*;
 import java.util.*;
+
+import entity.CareerCenterStaff;
+import entity.CompanyRep;
+import entity.GlobalInternshipList;
+import entity.Internship;
+import entity.Student;
+import entity.User;
+import entity.Company;
+
 import java.text.SimpleDateFormat;
 
 public class Main {
