@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GlobalInternshipList {
     private static List<Internship> internships = new ArrayList<>();
@@ -22,18 +23,34 @@ public class GlobalInternshipList {
         return Collections.unmodifiableList(internships);
     }
 
-    // Optional: get only approved internships
-    public static List<Internship> getApprovedInternships() {
-        List<Internship> approved = new ArrayList<>();
-        for (Internship i : internships) {
-            if (i.getStatus() == InternshipStatus.APPROVED || i.getStatus() == InternshipStatus.FILLED) {
-                approved.add(i);
-            }
-        }
-        return Collections.unmodifiableList(approved);
+    // Get internships created by a specific company representative
+    public static List<Internship> getByCompanyRep(CompanyRep rep) {
+        return Collections.unmodifiableList(
+            internships.stream()
+                       .filter(i -> i.getRepresentative().equals(rep))
+                       .collect(Collectors.toList())
+        );
     }
 
-    // Optional: clear the list (useful for testing)
+    // Get internships offered by a specific company
+    public static List<Internship> getByCompany(Company company) {
+        return Collections.unmodifiableList(
+            internships.stream()
+                       .filter(i -> i.getCompany().equals(company))
+                       .collect(Collectors.toList())
+        );
+    }
+
+    // Get only approved internships
+    public static List<Internship> getApprovedInternships() {
+        return Collections.unmodifiableList(
+            internships.stream()
+                       .filter(i -> i.getStatus() == InternshipStatus.APPROVED || i.getStatus() == InternshipStatus.FILLED)
+                       .collect(Collectors.toList())
+        );
+    }
+
+    // Clear the list (useful for testing)
     public static void clear() {
         internships.clear();
     }

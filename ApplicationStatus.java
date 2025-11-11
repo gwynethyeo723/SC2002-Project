@@ -1,8 +1,8 @@
 public enum ApplicationStatus {
     PENDING("Pending"),
     APPROVED("Approved"),
-    ACCEPTED_BY_CAREER_STAFF("Accepted by Career Staff"),
     ACCEPTED_BY_COMPANY_REPRESENTATIVE("Accepted by Company Representative"),
+    ACCEPTED_BY_STUDENT("Accepted by Student"),
     PENDING_WITHDRAWAL("Pending Withdrawal"),
     WITHDRAWN("Withdrawn");
 
