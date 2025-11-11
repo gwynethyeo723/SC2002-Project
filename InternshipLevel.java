@@ -1,4 +1,5 @@
 public enum InternshipLevel {
+    
     BASIC("Basic"),
     INTERMEDIATE("Intermediate"),
     ADVANCED("Advanced");
