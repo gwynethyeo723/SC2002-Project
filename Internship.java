@@ -10,15 +10,13 @@ public class Internship {
     private int totalSlots;
     private int slotsRemaining;
     private boolean visible;
-    private InternshipStatus status; 
-    private List<Student> applicants;
-    private List<Student> acceptedStudents;
+    private InternshipStatus status;
     private Date openingDate;
     private Date closingDate;
 
     // Constructor
     public Internship(String title, String description, Company company, CompanyRep representative,
-                  String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
+                        String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         this.title = title;
         this.description = description;
         this.company = company;
@@ -27,8 +25,6 @@ public class Internship {
         this.preferredMajor = preferredMajor;
         this.openingDate = openingDate;
         this.closingDate = closingDate;
-        this.applicants = new ArrayList<>();
-        this.acceptedStudents = new ArrayList<>();
             
         // Limit slots to at most 10
         if (slots > 10) {
@@ -52,45 +48,33 @@ public class Internship {
         }
     }
 
-    // Add a student as applicant
-    public void addApplicant(Student student) {
-        if(!applicants.contains(student)) {
-            applicants.add(student);
-        }
-    }
 
-    // Decrease available slots by 1
-    public void decreaseSlot() {
-        if (slotsRemaining > 0) {
-            slotsRemaining--;
-            if (slotsRemaining == 0) {
-                status = InternshipStatus.FILLED; // use enum
-            }
-        }
-    }
+    // Move to application
+    // // Decrease available slots by 1
+    // public void decreaseSlot() {
+    //     if (slotsRemaining > 0) {
+    //         slotsRemaining--;
+    //         if (slotsRemaining == 0) {
+    //             status = InternshipStatus.FILLED; // use enum
+    //         }
+    //     }
+    // }
 
 
-    public void increaseSlot() {
-        slotsRemaining++;
-        if (status == InternshipStatus.FILLED) { // compare enum directly
-            status = InternshipStatus.APPROVED; // reopen if previously full
-        }
-    }
+    // Move to application
+    // public void increaseSlot() {
+    //     slotsRemaining++;
+    //     if (status == InternshipStatus.FILLED) { // compare enum directly
+    //         status = InternshipStatus.APPROVED; // reopen if previously full
+    //     }
+    // }
 
-    public void addAcceptedStudent(Student student) {
-        if (!acceptedStudents.contains(student)) {
-            acceptedStudents.add(student);
-        }
-    }
 
-    public List<Student> getAcceptedStudents() {
-        return acceptedStudents;
-    }
-
-    // Toggle visibility for students
-    public void setVisibility(boolean visibility) {
-        this.visible = visibility;
-    }
+    // Move to application
+    // // Toggle visibility for students
+    // public void setVisibility(boolean visibility) {
+    //     this.visible = visibility;
+    // }
 
     public boolean isVisible() {
         return visible;
@@ -108,7 +92,6 @@ public class Internship {
     public void setStatus(InternshipStatus status) { this.status = status; }
     public Company getCompany() { return company; }
     public CompanyRep getRepresentative() { return representative; }
-    public List<Student> getApplicants() { return applicants; }
     public Date getOpeningDate() { return openingDate; }
     public Date getClosingDate() { return closingDate; }
     public void setTitle(String title) { this.title = title; }
