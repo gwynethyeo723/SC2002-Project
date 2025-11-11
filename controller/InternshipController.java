@@ -74,8 +74,8 @@ public class InternshipController {
     }
 
     // Approve or reject an internship created by a CompanyRep
-    public void reviewInternship(CompanyRep rep, Internship internship, boolean approve) {
-        if (!rep.isLoggedIn()) {
+    public void reviewInternship(CareerCenterStaff staff, Internship internship, boolean approve) {
+        if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
