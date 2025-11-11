@@ -1,17 +1,32 @@
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 
 public class CareerCenterStaff extends User {
     private String department;
+    private CareerCenterStaffStatus status;
 
-    public CareerCenterStaff(String userId, String name, String department) {
+    public CareerCenterStaff(String userId, String name, String department, CareerCenterStaffStatus status) {
         super(userId, name);
         this.department = department;
+        this.status = status;
     }
 
     public String getDepartment() {
         return department;
     }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public CareerCenterStaffStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CareerCenterStaffStatus status) {
+        this.status = status;
+    }
+}
+
 
     // Approve or reject a CompanyRep account
     // public void reviewCompanyRep(CompanyRep rep, boolean approve) {

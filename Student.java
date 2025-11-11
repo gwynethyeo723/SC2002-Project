@@ -10,16 +10,16 @@ class Student extends User {
     private int year;
     private String major;
     // private Map<Internship, ApplicationStatus> appliedInternships;
-    // private Internship acceptedInternship;
-    // private boolean pendingWithdrawal;
+    private Internship acceptedInternship;
+    private boolean pendingWithdrawal;
 
     public Student(String userId, String name, int year, String major) {
         super(userId, name);
         this.year = year;
         this.major = major;
         // this.appliedInternships = new HashMap<>();
-        // this.acceptedInternship = null;
-        // this.pendingWithdrawal = false;
+        this.acceptedInternship = null;
+        this.pendingWithdrawal = false;
     }
 
     // public List<Internship> viewAvailableInternships() {

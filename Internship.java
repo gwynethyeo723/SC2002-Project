@@ -70,16 +70,6 @@ public class Internship {
     // }
 
 
-    // Move to application
-    // // Toggle visibility for students
-    // public void setVisibility(boolean visibility) {
-    //     this.visible = visibility;
-    // }
-
-    public boolean isVisible() {
-        return visible;
-    }
-
     // Setters and Getters
     public String getTitle() { return title; }
     public String getDescription() { return description; }
@@ -89,12 +79,14 @@ public class Internship {
     public int getTotalSlots() { return totalSlots; }
     public int getSlotsRemaining() { return slotsRemaining; }
     public InternshipStatus getStatus() { return status; }
+     public boolean getVisibility() {return visible;}
     public void setStatus(InternshipStatus status) { this.status = status; }
     public Company getCompany() { return company; }
     public CompanyRep getRepresentative() { return representative; }
     public Date getOpeningDate() { return openingDate; }
     public Date getClosingDate() { return closingDate; }
     public void setTitle(String title) { this.title = title; }
+    public void setVisibility(boolean visibility) {this.visible = visibility;}
     public void setDescription(String description) { this.description = description; }
     public void setPreferredMajor(String preferredMajor) { this.preferredMajor = preferredMajor; }
     public void setTotalSlots(int slots) { this.totalSlots = slots; }

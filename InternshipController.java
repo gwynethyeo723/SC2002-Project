@@ -52,6 +52,20 @@ public class InternshipController {
         System.out.println("Internship '" + internship.getTitle() + "' has been updated.");
     }
 
+    // Approve or reject an internship created by a CompanyRep
+    public void reviewInternship(CompanyRep rep, Internship internship, boolean approve) {
+        if (!rep.isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+        if (approve) {
+            internship.setStatus(InternshipStatus.APPROVED);
+            internship.setVisibility(true);
+        } else {
+            internship.setStatus(InternshipStatus.REJECTED);
+        }
+    }
+
     // Delete an internship
     public static void deleteInternship(Internship internship) {
         // Update all applications for this internship to DELETED
@@ -62,5 +76,52 @@ public class InternshipController {
 
         System.out.println("Internship '" + internship.getTitle() + "' deleted successfully.");
     }
-}
 
+    // Generate a report on internships (example: by status)
+    public void generateInternshipReport(CareerCenterStaff staff, String filterStatus, String filterMajor, String filterLevel) {
+
+        if (!staff.isLoggedIn) {
+            System.out.println("You must be logged in to perform this action.");
+            return;
+        }
+        List<Internship> internships = GlobalInternshipList.getAll(); // use global list
+        Date today = new Date(); // current date
+        System.out.println("---- Internship Report ----");
+
+        for (Internship internship : internships) {
+            // Apply filters
+            if (filterStatus != null) {
+                try {
+                    InternshipStatus statusFilter = InternshipStatus.valueOf(filterStatus.toUpperCase());
+                    if (internship.getStatus() != statusFilter) continue;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid status filter: " + filterStatus);
+                    continue;
+                }
+            }
+            if (filterMajor != null && !internship.getPreferredMajor().equalsIgnoreCase(filterMajor)) {
+                continue;
+            }
+            if (filterLevel != null) {
+                try {
+                    InternshipLevel levelFilter = InternshipLevel.valueOf(filterLevel.toUpperCase());
+                    if (internship.getLevel() != levelFilter) continue;
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid level filter: " + filterLevel);
+                    continue;
+                }
+            }
+            // Determine if the internship is open or closed
+            String openStatus = internship.getClosingDate().before(today) ? "Closed" : "Open";
+
+            // Print internship details including total slots
+            System.out.println(internship.getTitle() + " at " + internship.getCompany().getName()
+                + " | Level: " + internship.getLevel()
+                + " | Preferred Major: " + internship.getPreferredMajor()
+                + " | Slots: " + internship.getSlotsRemaining() + "/" + internship.getTotalSlots()
+                + " | Status: " + internship.getStatus()
+                + " | Closing Date: " + internship.getClosingDate()
+                + " | Open/Closed: " + openStatus);
+        }
+    }
+}
