@@ -16,7 +16,7 @@ public class Internship {
 
     // Constructor
     public Internship(String title, String description, Company company, CompanyRep representative,
-                        String level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
+                        InternshipLevel level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         this.title = title;
         this.description = description;
         this.company = company;
@@ -39,8 +39,8 @@ public class Internship {
         this.status = InternshipStatus.PENDING;
     }
 
-    private InternshipLevel mapLevel(String level) {
-        switch(level.toLowerCase()) {
+    private InternshipLevel mapLevel(InternshipLevel level) {
+        switch(level.toString().toLowerCase()) {
             case "basic": return InternshipLevel.BASIC;
             case "intermediate": return InternshipLevel.INTERMEDIATE;
             case "advanced": return InternshipLevel.ADVANCED;
