@@ -1,7 +1,4 @@
 package entity;
-import java.util.Date;
-import java.util.List;
-
 import enumeration.CompanyRepStatus;
 
 // ----- This class defines the attributes relevant to each Company Representative. -----//

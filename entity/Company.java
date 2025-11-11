@@ -1,9 +1,5 @@
 package entity;
 
-import java.util.List;
-import java.util.ArrayList;
-
-
 // ----- This class defines the attributes relevant to each Company. -----//
 // ----- Relevant attributes include Company Name. -----//
 public class Company {
