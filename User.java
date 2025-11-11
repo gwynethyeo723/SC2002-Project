@@ -4,6 +4,8 @@ abstract class User {
     private String password;
     protected boolean isLoggedIn = false; // default false
 
+    // ----- This class defines the attributes relevant to the User abstract class. -----//
+    // ----- Relevant attributes include UserID, Name and Password. -----//
     public User(String userId, String name) {
         this.userId = userId;
         this.name = name;

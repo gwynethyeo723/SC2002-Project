@@ -44,6 +44,13 @@ public class GlobalApplicationList {
                 .collect(Collectors.toList());
     }
 
+    // Filter applications by internship and student
+    public static List<Application> getByInternshipAndStudent(Internship internship, Student student) {
+        return applications.stream()
+                .filter(a -> a.getInternship().equals(internship) && a.getStudent().equals(student))
+                .collect(Collectors.toList());
+    }
+
     // Clear all applications (useful for testing)
     public static void clear() {
         applications.clear();

@@ -1,6 +1,8 @@
 import java.util.Date;
 import java.util.List;
 
+// ----- This class defines the attributes relevant to each Company Representative. -----//
+// ----- Relevant attributes include Company, Company Representative Application Status (one-time at the start), Department, Position and Email. -----//
 public class CompanyRep extends User {
     private Company company;
     private CompanyRepStatus status;
@@ -135,9 +137,9 @@ public class CompanyRep extends User {
     //     }
 
     //     // Toggle visibility using the existing setter
-    //     internship.setVisibility(!internship.isVisible());
+    //     internship.setVisibility(!internship.getVisibility());
     //     System.out.println("Internship '" + internship.getTitle() + " 's visibility is now " 
-    //                    + (internship.isVisible() ? "ON" : "OFF"));
+    //                    + (internship.getVisibility() ? "ON" : "OFF"));
     // }
     
     
@@ -250,7 +252,7 @@ public class CompanyRep extends User {
     //                 + " | Level: " + internship.getLevel()
     //                 + " | Preferred Major: " + internship.getPreferredMajor()
     //                 + " | Slots: " + internship.getSlotsRemaining() + "/" + internship.getTotalSlots()
-    //                 + " | Visible: " + (internship.isVisible() ? "Yes" : "No")
+    //                 + " | Visible: " + (internship.getVisibility() ? "Yes" : "No")
     //                 + " | Opening Date: " + internship.getOpeningDate()
     //                 + " | Closing Date: " + internship.getClosingDate());
     //     }
