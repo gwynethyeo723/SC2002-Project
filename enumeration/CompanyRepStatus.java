@@ -1,3 +1,4 @@
+package enumeration;
 public enum CompanyRepStatus {
     PENDING("Pending"),
     APPROVED("Approved"),

@@ -1,7 +1,10 @@
+package entity;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import enumeration.InternshipStatus;
 
 public class GlobalInternshipList {
     private static List<Internship> internships = new ArrayList<>();

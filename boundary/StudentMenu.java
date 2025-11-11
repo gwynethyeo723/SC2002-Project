@@ -1,6 +1,16 @@
 import java.util.List;
 import java.util.Scanner;
 
+import entity.Student;
+import entity.Internship;
+import controller.UserController;
+import controller.InternshipController;
+import controller.ApplicationController;
+import entity.Application;
+import entity.GlobalInternshipList;
+import entity.GlobalApplicationList;
+import enumeration.ApplicationStatus;
+
 public class StudentMenu {
     private static final Scanner sc = new Scanner(System.in);
 

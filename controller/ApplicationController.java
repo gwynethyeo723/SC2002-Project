@@ -1,5 +1,16 @@
+package controller;
 import java.time.LocalDate;
 import java.util.List;
+
+import entity.Application;
+import enumeration.ApplicationStatus;
+import entity.CareerCenterStaff;
+import entity.CompanyRep;
+import entity.GlobalApplicationList;
+import entity.Internship;
+import enumeration.InternshipLevel;
+import enumeration.InternshipStatus;
+import entity.Student;
 
 public class ApplicationController {
 
@@ -83,7 +94,7 @@ public class ApplicationController {
     
     // 3. Career center staff to approve or reject a student's withdrawal request
     public void reviewWithdrawal(CareerCenterStaff staff, Student student, Internship internship, boolean approve) {
-        if (!staff.isLoggedIn) {
+        if (!staff.isLoggedIn()) {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
