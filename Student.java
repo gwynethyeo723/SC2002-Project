@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// ----- This class defines the attributes relevant to the Student user. -----//
+// ----- Relevant attributes include Year of Study and  Major. -----//
 
 class Student extends User {
     private int year;
@@ -29,7 +31,7 @@ class Student extends User {
     //     }
 
     //     return GlobalInternshipList.getAll().stream()
-    //         .filter(Internship::isVisible)
+    //         .filter(Internship::getVisibility)
     //         .filter(i -> i.getStatus() == InternshipStatus.APPROVED) // enum comparison
     //         .filter(i -> i.getPreferredMajor().equalsIgnoreCase(this.major))
     //         .filter(i -> {
@@ -60,7 +62,7 @@ class Student extends User {
     //     }
 
     //     // Check visibility and approval
-    //     if (!internship.isVisible() || internship.getStatus() != InternshipStatus.APPROVED) {
+    //     if (!internship.getVisibility() || internship.getStatus() != InternshipStatus.APPROVED) {
     //         System.out.println("Cannot apply: Internship not available.");
     //         return;
     //     }
@@ -138,16 +140,8 @@ class Student extends User {
         return year;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-    
     public String getMajor() {
         return major;
-    }
-
-    public void setMajor(String major){
-        this.major = major;
     }
 
     // // Getter for appliedInternships
