@@ -15,7 +15,7 @@ public class CompanyRep extends User {
         this.status = CompanyRepStatus.PENDING; // default until authorized
         this.department = department;
         this.position = position;
-        company.addRepresentative(this);
+        // company.addRepresentative(this);
     }
 
     // Getters and setters
