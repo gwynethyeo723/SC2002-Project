@@ -1,6 +1,17 @@
 import java.util.List;
 import java.util.Scanner;
 
+import controller.AccountsController;
+import controller.ApplicationController;
+import controller.InternshipController;
+import controller.UserController;
+import entity.CareerCenterStaff;
+import entity.CompanyRep;
+import database.GlobalInternshipList;
+import entity.Internship;
+import entity.Student;
+import entity.User;
+
 public class CareerStaffMenu {
 
     private static final Scanner sc = new Scanner(System.in);
@@ -29,7 +40,7 @@ public class CareerStaffMenu {
                     if (u != null) {
                         System.out.print("Approve or reject? (1=Approve, 2=Reject): ");
                         int approve = sc.nextInt(); sc.nextLine();
-                        staff.reviewCompanyRep((CompanyRep) u, approve == 1);
+                        AccountsController.reviewCompanyRep((CompanyRep) u,staff, approve == 1);
                     } else {
                         System.out.println("CompanyRep not found.");
                     }
@@ -47,8 +58,8 @@ public class CareerStaffMenu {
 
                     if (internship != null) {
                         System.out.print("Approve or reject? (1=Approve, 2=Reject): ");
-                        int approve = sc.nextInt(); sc.nextLine();
-                        staff.reviewInternship(internship, approve == 1);
+                        boolean approve = sc.nextBoolean(); sc.nextLine();
+                        InternshipController.reviewInternship(staff,internship, approve);
                     } else {
                         System.out.println("Internship not found.");
                     }
@@ -75,8 +86,8 @@ public class CareerStaffMenu {
 
                         if (internship != null) {
                             System.out.print("Approve or reject withdrawal? (1=Approve, 2=Reject): ");
-                            int approve = sc.nextInt(); sc.nextLine();
-                            staff.reviewWithdrawal(s, internship, approve == 1);
+                            boolean approve = sc.nextBoolean(); sc.nextLine();
+                            ApplicationController.reviewWithdrawal(staff,s, internship, approve);
                         } else {
                             System.out.println("Internship not found.");
                         }
@@ -91,7 +102,8 @@ public class CareerStaffMenu {
                     String major = sc.nextLine();
                     System.out.print("Filter by level (or leave empty): ");
                     String level = sc.nextLine();
-                    staff.generateInternshipReport(
+                    InternshipController.generateInternshipReport(
+                            staff,
                             status.isBlank() ? null : status,
                             major.isBlank() ? null : major,
                             level.isBlank() ? null : level
