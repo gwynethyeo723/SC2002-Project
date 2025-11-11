@@ -6,10 +6,10 @@ public class Application {
     private ApplicationStatus status;
     private LocalDate applicationDate;
 
-    public Application(Student student, Internship internship, ApplicationStatus status) {
+    public Application(Student student, Internship internship) {
         this.student = student;
         this.internship = internship;
-        this.status = status;
+        this.status = ApplicationStatus.PENDING;
         this.applicationDate = LocalDate.now(); // automatically set to current date
     }
 
