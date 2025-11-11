@@ -2,15 +2,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentMenu {
-    private final Student student;
-    private final Scanner sc;
+    private static final Scanner sc = new Scanner(System.in);
 
-    public StudentMenu(Student student, Scanner sc) {
-        this.student = student;
-        this.sc = sc;
-    }
-
-    public void display() {
+    public static void showMenu(Student student) {
         if (!student.isLoggedIn()) {
             System.out.println("You must be logged in to access the student menu.");
             return;
