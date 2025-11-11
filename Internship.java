@@ -78,7 +78,7 @@ public class Internship {
     //     this.visible = visibility;
     // }
 
-    public boolean isVisible() {
+    public boolean getVisibility() {
         return visible;
     }
 
