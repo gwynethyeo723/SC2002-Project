@@ -1,9 +1,9 @@
 import java.io.*;
 import java.util.*;
 
+import database.GlobalInternshipList;
 import entity.CareerCenterStaff;
 import entity.CompanyRep;
-import entity.GlobalInternshipList;
 import entity.Internship;
 import entity.Student;
 import entity.User;

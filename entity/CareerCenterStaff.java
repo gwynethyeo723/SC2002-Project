@@ -1,18 +1,15 @@
 package entity;
 import java.util.*;
 
-import enumeration.CareerCenterStaffStatus;
 
 // ----- This class defines the attributes relevant to the Career Center Staff. -----//
 // ----- Relevant attributes include UserID and Name (from User parent class) and Department. -----//
 public class CareerCenterStaff extends User {
     private String department;
-    private CareerCenterStaffStatus status;
 
-    public CareerCenterStaff(String userId, String name, String department, CareerCenterStaffStatus status) {
+    public CareerCenterStaff(String userId, String name, String department) {
         super(userId, name);
         this.department = department;
-        this.status = status;
     }
 
     public String getDepartment() {
@@ -21,14 +18,6 @@ public class CareerCenterStaff extends User {
 
     public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public CareerCenterStaffStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(CareerCenterStaffStatus status) {
-        this.status = status;
     }
 }
 

@@ -1,10 +1,13 @@
-package entity;
+package database;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import enumeration.ApplicationStatus;
+import entity.Application;
+import entity.Internship;
+import entity.Student;
 
 public class GlobalApplicationList {
     private static List<Application> applications = new ArrayList<>();
