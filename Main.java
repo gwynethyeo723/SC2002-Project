@@ -11,6 +11,7 @@ import enumeration.InternshipLevel;
 import entity.Company;
 import java.text.SimpleDateFormat;
 
+
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static List<User> users = new ArrayList<>();
@@ -56,6 +57,28 @@ public class Main {
             }
         }
     }
+
+    private static String[] splitCSV(String line) {
+        List<String> tokens = new ArrayList<>();
+        boolean inQuotes = false;
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < line.length(); i++) {
+            char c = line.charAt(i);
+
+            if (c == '"') {
+            inQuotes = !inQuotes; // toggle quote state
+            } else if (c == ',' && !inQuotes) {
+                tokens.add(sb.toString().trim());
+                sb.setLength(0);
+            } else {
+                sb.append(c);
+            }
+        }
+
+    tokens.add(sb.toString().trim());
+    return tokens.toArray(new String[0]);
+}
 
     // ================== CSV Loaders ==================
     private static void loadCompanyReps(String path, List<User> users, Map<String, Company> companyMap) {
@@ -120,13 +143,19 @@ public class Main {
     }
 
     private static void loadInternships(String filePath, List<User> users, Map<String, Company> companyMap) {
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line = br.readLine(); // skip header
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",", -1); // handle empty values safely
-                if (tokens.length < 9) continue;
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-                String title = tokens[0].trim();
+    try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        String line = br.readLine(); // skip header
+        while ((line = br.readLine()) != null) {
+            String[] tokens = splitCSV(line);
+            if (tokens.length < 9) {
+                System.out.println("Skipping invalid row: " + line);
+                continue;
+            }
+
+            try {
+                String title = tokens[0].replace("\uFEFF", "").trim();
                 String description = tokens[1].trim();
                 String companyName = tokens[2].trim();
                 String companyRepId = tokens[3].trim();
@@ -136,20 +165,11 @@ public class Main {
                 Date openingDate = sdf.parse(tokens[7].trim());
                 Date closingDate = sdf.parse(tokens[8].trim());
 
-                Company company = companyMap.get(companyName);
-                if (company == null) {
-                    company = new Company(companyName);
-                    companyMap.put(companyName, company);
-                }
+                // Get or create company
+                Company company = companyMap.getOrDefault(companyName, new Company(companyName));
+                companyMap.putIfAbsent(companyName, company);
 
-                InternshipLevel level;
-                    try {
-                        level = InternshipLevel.valueOf(levelStr.toUpperCase());
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Invalid internship level '" + levelStr + "' for " + title + ". Skipping...");
-                        continue;
-                    }
-
+                // Find the company rep
                 CompanyRep rep = users.stream()
                         .filter(u -> u instanceof CompanyRep)
                         .map(u -> (CompanyRep) u)
@@ -157,12 +177,38 @@ public class Main {
                         .findFirst()
                         .orElse(null);
 
-                Internship internship = new Internship(title, description, company,rep, level, preferredMajor, totalSlots, openingDate, closingDate);
+                if (rep == null) {
+                    System.out.println("Warning: CompanyRep with ID '" + companyRepId + "' not found for internship '" + title + "'. Skipping...");
+                    continue;
+                }
+
+                // Parse level
+                InternshipLevel level;
+                try {
+                    level = InternshipLevel.valueOf(levelStr.toUpperCase());
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Invalid internship level '" + levelStr + "' for " + title + ". Defaulting to BASIC.");
+                    level = InternshipLevel.BASIC;
+                }
+
+                Internship internship = new Internship(title, description, company, rep, level, preferredMajor, totalSlots, openingDate, closingDate);
                 GlobalInternshipList.addInternship(internship);
+
+                // Debug
+                System.out.println("Loaded internship: " + title + " | Company: " + companyName + " | Rep: " + rep.getUserId());
+
+            } catch (Exception e) {
+                System.out.println("Skipping invalid internship row: " + line);
+                e.printStackTrace();
             }
-            System.out.println("Internships loaded.");
-        } catch (Exception e) {
-            System.out.println("Error loading internships: " + e.getMessage());
         }
+
+        System.out.println("Internships loaded.");
+    } catch (Exception e) {
+        System.out.println("Error loading internships: " + e.getMessage());
+        e.printStackTrace();
     }
+}
+
+
 }

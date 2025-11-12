@@ -61,7 +61,6 @@ public class UserController {
 
         if (user.getPassword().equals(oldPass)) { // password change successfully
             user.setPassword(newPass);
-            System.out.println("Password changed successfully.");
             return true;
         }
 

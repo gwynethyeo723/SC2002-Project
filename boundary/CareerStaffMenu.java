@@ -47,21 +47,28 @@ public class CareerStaffMenu {
                 }
                 case 2 -> {
                     System.out.print("Enter internship title: ");
-                    String title = sc.nextLine();
+                    String inputTitle = sc.nextLine().trim();
                     System.out.print("Enter company name: ");
-                    String companyName = sc.nextLine();
+                    String inputCompany = sc.nextLine().trim();
 
+                
                     Internship internship = GlobalInternshipList.getAll().stream()
-                            .filter(i -> i.getTitle().equalsIgnoreCase(title))
-                            .filter(i -> i.getCompany().getName().equalsIgnoreCase(companyName))
-                            .findFirst().orElse(null);
+                        .filter(i -> i.getTitle().trim().equalsIgnoreCase(inputTitle))
+                        .filter(i -> i.getCompany().getName().trim().equalsIgnoreCase(inputCompany))
+                        .findFirst()
+                        .orElse(null);
 
                     if (internship != null) {
                         System.out.print("Approve or reject? (1=Approve, 2=Reject): ");
                         int approve1 = sc.nextInt(); sc.nextLine();
                         boolean approve2 = approve1 == 1; // 1 = approve, 2 = reject
                         InternshipController.reviewInternship(staff, internship, approve2);
-                    } else {
+                        if (approve2) {
+                            System.out.println("Internship '" + internship.getTitle() + "' at '" + internship.getCompany().getName() + "' has been approved.");
+                        } else {
+                            System.out.println("Internship '" + internship.getTitle() + "' at '" + internship.getCompany().getName() + "' has been rejected.");
+                        }
+                    }else {
                         System.out.println("Internship not found.");
                     }
                 }
