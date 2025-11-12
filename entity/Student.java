@@ -144,10 +144,10 @@ public class Student extends User {
 
     @Override
     public boolean login(String id, String password2) {
-    if (this.userId.equals(id) && this.getPassword().equals(password2)) {
-        this.setLoggedIn(true);
-        return true;
+        if (this.userId.equals(id) && this.getPassword().equals(password2)) {
+            this.setLoggedIn(true);
+            return true;
         }
-    return false;
+        return false;
     }
 }

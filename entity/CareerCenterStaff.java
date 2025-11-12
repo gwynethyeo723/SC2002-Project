@@ -20,8 +20,11 @@ public class CareerCenterStaff extends User {
 
     @Override
     public boolean login(String id, String password2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'login'");
+        if (this.userId.equals(id) && this.getPassword().equals(password2)) {
+            this.setLoggedIn(true);
+            return true;
+            }
+        return false;
     }
 }
 

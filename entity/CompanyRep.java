@@ -60,8 +60,22 @@ public class CompanyRep extends User {
 
     @Override
     public boolean login(String id, String password2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'login'");
+        // check credentials first
+        if (this.getUserId().equals(id) && this.getPassword().equals(password2)) {
+            // check approval status
+            if (this.getStatus() == CompanyRepStatus.APPROVED) {
+                this.setLoggedIn(true);
+                System.out.println("Login successful. Welcome, " + this.getName() + "!");
+                return true;
+            } else if (this.getStatus() == CompanyRepStatus.PENDING) {
+                System.out.println("Your account is still pending approval by the Career Center.");
+                return false;
+            } else if (this.getStatus() == CompanyRepStatus.REJECTED) {
+                System.out.println("Your account has been rejected. Please contact Career Services for assistance.");
+                return false;
+            }
+        }
+        return false;
     }
 
     // Create internship with all required fields
