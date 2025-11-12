@@ -18,7 +18,7 @@ import entity.Student;
 public class InternshipController {
 
     // Create a new internship
-    public static Internship createInternship(CompanyRep rep, String title, String description, Company company, 
+    public static Internship createInternship(String title, String description, Company company, CompanyRep rep,
                                               InternshipLevel level, String preferredMajor, int slots, 
                                               Date openingDate, Date closingDate) {
 

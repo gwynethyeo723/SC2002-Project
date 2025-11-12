@@ -39,7 +39,7 @@ public class CompanyRepMenu {
                     System.out.print("Slots: "); int slots = sc.nextInt(); sc.nextLine();
                     System.out.print("Opening Date (yyyy-MM-dd): "); Date open = parseDate(sc.nextLine());
                     System.out.print("Closing Date (yyyy-MM-dd): "); Date close = parseDate(sc.nextLine());
-                    InternshipController.createInternship(rep, title, desc, rep.getCompany(),
+                    InternshipController.createInternship( title, desc, rep.getCompany(), rep,
                             InternshipLevel.valueOf(level.toUpperCase()), major, slots, open, close);
                 }
                 case 2 -> {

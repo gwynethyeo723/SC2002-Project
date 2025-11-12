@@ -89,6 +89,7 @@ public class Internship {
     public void setStatus(InternshipStatus status) { this.status = status; }
     public Company getCompany() { return company; }
     public CompanyRep getRepresentative() { return representative; }
+    public void setRepresentative(CompanyRep representative) { this.representative=representative; }
     public Date getOpeningDate() { return openingDate; }
     public Date getClosingDate() { return closingDate; }
     public void setTitle(String title) { this.title = title; }
