@@ -58,8 +58,9 @@ public class CareerStaffMenu {
 
                     if (internship != null) {
                         System.out.print("Approve or reject? (1=Approve, 2=Reject): ");
-                        boolean approve = sc.nextBoolean(); sc.nextLine();
-                        InternshipController.reviewInternship(staff,internship, approve);
+                        int approve1 = sc.nextInt(); sc.nextLine();
+                        boolean approve2 = approve1 == 1; // 1 = approve, 2 = reject
+                        InternshipController.reviewInternship(staff, internship, approve2);
                     } else {
                         System.out.println("Internship not found.");
                     }
