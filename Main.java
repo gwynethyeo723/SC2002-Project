@@ -158,7 +158,6 @@ public class Main {
                         .orElse(null);
 
                 Internship internship = new Internship(title, description, company,rep, level, preferredMajor, totalSlots, openingDate, closingDate);
-                internship.setRepresentative(rep);
                 GlobalInternshipList.addInternship(internship);
             }
             System.out.println("Internships loaded.");
