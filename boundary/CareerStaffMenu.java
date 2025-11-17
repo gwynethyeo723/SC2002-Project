@@ -94,7 +94,9 @@ public class CareerStaffMenu {
 
                         if (internship != null) {
                             System.out.print("Approve or reject withdrawal? (1=Approve, 2=Reject): ");
-                            boolean approve = sc.nextBoolean(); sc.nextLine();
+                            int option = sc.nextInt();
+                            sc.nextLine();
+                            boolean approve = (option == 1);
                             ApplicationController.reviewWithdrawal(staff,s, internship, approve);
                         } else {
                             System.out.println("Internship not found.");

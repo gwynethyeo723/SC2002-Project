@@ -3,11 +3,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import entity.Application;
 import entity.CompanyRep;
 import controller.InternshipController;
+import controller.ApplicationController;
 import enumeration.InternshipLevel;
 import entity.Internship;
+import entity.Student;
 import controller.UserController;
+import database.GlobalApplicationList;
 import database.GlobalInternshipList;
 
 
@@ -24,8 +28,9 @@ public class CompanyRepMenu {
             System.out.println("3. Delete internship");
             System.out.println("4. Toggle internship visibility");
             System.out.println("5. View my internships");
-            System.out.println("6. Change password");
-            System.out.println("7. Logout");
+            System.out.println("6. Accept applicant"); 
+            System.out.println("7. Change password");
+            System.out.println("8. Logout");
 
             int choice = sc.nextInt();
             sc.nextLine(); 
@@ -84,12 +89,36 @@ public class CompanyRepMenu {
                             System.out.println(i.getTitle() + " | " + i.getCompany().getName() + " | Status: " + i.getStatus()));
                 }
                 case 6 -> {
+                    System.out.print("Enter internship title: ");
+                    String internshipTitle = sc.nextLine();
+                    System.out.print("Enter student username: ");
+                    String studentUsername = sc.nextLine();
+                    Internship internship = GlobalInternshipList.getByCompanyRep(rep).stream()
+                            .filter(i -> i.getTitle().equalsIgnoreCase(internshipTitle))
+                            .findFirst()
+                            .orElse(null);
+                    if (internship == null) {
+                        System.out.println("Internship not found.");
+                        break;
+                    }
+                    Application application = GlobalApplicationList.getByInternship(internship).stream()
+                            .filter(app -> app.getStudent().getUserId().equalsIgnoreCase(studentUsername))
+                            .findFirst()
+                            .orElse(null);
+                    if (application == null) {
+                        System.out.println("No application found for this student on this internship.");
+                        break;
+                    }
+                    Student student = application.getStudent();
+                    ApplicationController.acceptApplicationByCompanyRep(rep, internship, student);
+                }
+                case 7 -> {
                     System.out.print("Enter old password: "); String oldPass = sc.nextLine();
                     System.out.print("Enter new password: "); String newPass = sc.nextLine();
                     if (UserController.changePassword(rep,oldPass, newPass)) System.out.println("Password changed successfully.");
                     else System.out.println("Password change failed.");
                 }
-                case 7 -> {
+                case 8 -> {
                     UserController.logout(rep);
                     return;
                 }
