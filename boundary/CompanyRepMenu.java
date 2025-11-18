@@ -14,6 +14,29 @@ import controller.UserController;
 import database.GlobalApplicationList;
 import database.GlobalInternshipList;
 
+/**
+ * Displays the main menu for a logged-in {@link CompanyRep} and processes
+ * the selected actions. This menu allows the representative to manage their
+ * internships and account settings in a text-based interface.
+ *
+ * <p>This method runs in a loop until the representative chooses the
+ * <b>Logout</b> option. For each selection, the appropriate controller is
+ * invoked to perform the requested operation. The available functions include:
+ * <ul>
+ *     <li>creating new internships</li>
+ *     <li>editing existing internships</li>
+ *     <li>deleting internships</li>
+ *     <li>toggling internship visibility</li>
+ *     <li>viewing all internships created by the representative</li>
+ *     <li>accepting applicants for an internship</li>
+ *     <li>changing the representative's account password</li>
+ * </ul>
+ *
+ * <p>This method does not return a value. The menu continues running until
+ * {@link controller.UserController#logout(entity.User)} is invoked.
+ *
+ * @param rep the logged-in company representative using this menu
+ */
 
 public class CompanyRepMenu {
 

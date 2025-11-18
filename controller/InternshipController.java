@@ -15,8 +15,32 @@ import enumeration.InternshipLevel;
 import enumeration.InternshipStatus;
 import entity.Student;
 
+/**
+ * Controller class that manages the lifecycle of internships.
+ * <p>
+ * Provides operations for company representatives to create, edit, delete and 
+ * manage internships, for staff to review and approve them, and for students 
+ * to view available internships. Also handles slot updates and report 
+ * generation.
+ */
+
 public class InternshipController {
 
+    /**
+     * Creates a new internship for the given company representative, applying 
+     * validations such as login status and maximum internship count.
+     *
+     * @param title          internship title
+     * @param description    internship description
+     * @param company        company offering the internship
+     * @param rep            the company representative creating it
+     * @param level          internship level (basic/intermediate/advanced)
+     * @param preferredMajor preferred major for applicants
+     * @param slots          number of available slots (max 10)
+     * @param openingDate    application start date
+     * @param closingDate    application end date
+     * @return the created {@link Internship}, or {@code null} if creation failed
+     */
     // Create a new internship
     public static Internship createInternship(String title, String description, Company company, CompanyRep rep,
                                               InternshipLevel level, String preferredMajor, int slots, 
@@ -47,6 +71,20 @@ public class InternshipController {
         return internship;
     }
 
+    /**
+     * Edits an existing internship, updating its fields if the representative is 
+     * logged in. Slot count is capped at 10.
+     *
+     * @param rep              company representative editing the internship
+     * @param internship       internship being modified
+     * @param newTitle         updated title
+     * @param newDescription   updated description
+     * @param newLevel         updated level
+     * @param newPreferredMajor updated preferred major
+     * @param newSlots         updated number of slots
+     * @param newOpeningDate   updated opening date
+     * @param newClosingDate   updated closing date
+     */
     // Edit an existing internship
     public static void editInternship(CompanyRep rep, Internship internship, String newTitle, String newDescription,
                                       InternshipLevel newLevel, String newPreferredMajor, int newSlots,
@@ -73,6 +111,14 @@ public class InternshipController {
         System.out.println("Internship '" + internship.getTitle() + "' has been updated.");
     }
 
+    /**
+     * Allows a career center staff member to approve or reject an internship 
+     * submitted by a company representative.
+     *
+     * @param staff      the reviewing staff member
+     * @param internship the internship under review
+     * @param approve    {@code true} to approve, {@code false} to reject
+     */
     // Approve or reject an internship created by a CompanyRep
     public static void reviewInternship(CareerCenterStaff staff, Internship internship, boolean approve) {
         if (!staff.isLoggedIn()) {
@@ -87,6 +133,13 @@ public class InternshipController {
         }
     }
 
+    /**
+     * Deletes an internship created by a company representative and marks all
+     * associated applications as {@link ApplicationStatus#DELETED}.
+     *
+     * @param rep        the company representative requesting deletion
+     * @param internship the internship to delete
+     */    
     // Delete an internship
     public static void deleteInternship(CompanyRep rep, Internship internship) {
         if (!rep.isLoggedIn()) {
@@ -103,6 +156,12 @@ public class InternshipController {
         System.out.println("Internship '" + internship.getTitle() + "' deleted successfully.");
     }
 
+    /**
+     * Decreases the remaining slot count for an internship. If slots reach zero,
+     * the internship status becomes {@link InternshipStatus#FILLED}.
+     *
+     * @param internship the internship whose slots are reduced
+     */
     // Decrease available slots
     public static void decreaseSlot(Internship internship) {
         if (internship.getSlotsRemaining() > 0) {
@@ -115,6 +174,12 @@ public class InternshipController {
         }
     }
 
+    /**
+     * Increases the remaining slot count for an internship. If the internship 
+     * was previously filled, it becomes approved again.
+     *
+     * @param internship the internship whose slots are increased
+     */
     // Increase available slots
     public static void increaseSlot(Internship internship) {
         internship.setSlotsRemaining(internship.getSlotsRemaining() + 1);
@@ -123,6 +188,13 @@ public class InternshipController {
         }
     }
 
+    /**
+     * Returns a list of internships available for a given student based on 
+     * visibility, approval status, slot availability, and application dates.
+     *
+     * @param student the student viewing available internships
+     * @return a list of available internships
+     */
     public static List<Internship> viewAvailableInternships(Student student) {
         if (!student.isLoggedIn()) {
             System.out.println("You must be logged in to view available internships.");
@@ -155,6 +227,15 @@ public class InternshipController {
         return available;
     }
 
+    /**
+     * Generates and prints a report of internships, optionally filtered by 
+     * status, preferred major, or level.
+     *
+     * @param staff        the staff member requesting the report
+     * @param filterStatus optional status filter
+     * @param filterMajor  optional major filter
+     * @param filterLevel  optional level filter
+     */
     // Generate a report on internships (example: by status)
     public static void generateInternshipReport(CareerCenterStaff staff, String filterStatus, String filterMajor, String filterLevel) {
 

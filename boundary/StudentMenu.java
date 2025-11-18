@@ -11,6 +11,32 @@ import entity.Application;
 import database.GlobalApplicationList;
 import enumeration.ApplicationStatus;
 
+/**
+ * Displays the main menu for a logged-in {@link Student} and processes
+ * the selected actions. This menu allows the student to browse internships,
+ * submit applications, manage their accepted internship, and update their
+ * account information.
+ *
+ * <p>This method runs continuously in a loop until the student chooses
+ * the <b>Logout</b> option. For each menu selection, the corresponding
+ * controller method is invoked. The available functions include:
+ *
+ * <ul>
+ *     <li>viewing all available internships</li>
+ *     <li>applying for internships</li>
+ *     <li>accepting internships after approval</li>
+ *     <li>requesting withdrawal from an internship</li>
+ *     <li>viewing all submitted applications and their statuses</li>
+ *     <li>viewing the internship accepted by the student</li>
+ *     <li>changing the student's account password</li>
+ * </ul>
+ *
+ * <p>This method does not return a value. The loop exits only when
+ * {@link controller.UserController#logout(entity.User)} is invoked.
+ *
+ * @param student the logged-in student using this menu
+ */
+
 public class StudentMenu {
     private static final Scanner sc = new Scanner(System.in);
 

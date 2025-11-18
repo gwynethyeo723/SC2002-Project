@@ -3,15 +3,26 @@ import java.time.LocalDate;
 
 import enumeration.ApplicationStatus;
 
-// ----- This class defines the attributes relevant to each Application. -----//
-// ----- Relevant attributes include Student, Internship, Status and Application Date. -----//
-
+/**
+ * Represents an internship application submitted by a student.
+ * <p>
+ * Stores the applicant ({@link Student}), the target {@link Internship},
+ * the current application status, and the date the application was created.
+ */
 public class Application {
     private Student student;
     private Internship internship;
     private ApplicationStatus status;
     private LocalDate applicationDate;
 
+    /**
+     * Creates a new application for the given student and internship.
+     * The application is initialized with {@link ApplicationStatus#PENDING}
+     * and the current date.
+     *
+     * @param student     the student submitting the application
+     * @param internship  the internship being applied for
+     */
     public Application(Student student, Internship internship) {
         this.student = student;
         this.internship = internship;

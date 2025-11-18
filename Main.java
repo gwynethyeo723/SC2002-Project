@@ -11,14 +11,28 @@ import enumeration.InternshipLevel;
 import entity.Company;
 import java.text.SimpleDateFormat;
 
-
+/**
+ * Entry point of the Internship Portal application.
+ * <p>
+ * This class is responsible for:
+ * <ul>
+ *   <li>Loading initial data from CSV files</li>
+ *   <li>Authenticating users</li>
+ *   <li>Routing users to the appropriate menu based on their role</li>
+ * </ul>
+ */
 public class Main {
     private static Scanner sc = new Scanner(System.in);
     private static List<User> users = new ArrayList<>();
     static Map<String, Company> companyMap = new HashMap<>(); // temporary map for companies
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-
+    /**
+     * Starts the application by loading data and prompting for user login.
+     * Launches the appropriate menu after successful authentication.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         // Load data from CSV
         loadCompanyReps("company_rep_list.csv", users, companyMap);
@@ -58,6 +72,12 @@ public class Main {
         }
     }
 
+    /**
+     * Splits a CSV line while preserving values enclosed in quotes.
+     *
+     * @param line a raw CSV line
+     * @return an array of trimmed column values
+     */
     private static String[] splitCSV(String line) {
         List<String> tokens = new ArrayList<>();
         boolean inQuotes = false;
@@ -81,6 +101,13 @@ public class Main {
 }
 
     // ================== CSV Loaders ==================
+    /**
+     * Loads company representative records from a CSV file and adds them to the user list.
+     *
+     * @param path      file path of the CSV
+     * @param users     list to store loaded users
+     * @param companyMap map to store and reuse {@link Company} objects
+     */
     private static void loadCompanyReps(String path, List<User> users, Map<String, Company> companyMap) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -105,6 +132,11 @@ public class Main {
             System.out.println("Error loading company reps: " + e.getMessage());
         }
     }
+    /**
+     * Loads career center staff data from a CSV file and adds them to the user list.
+     *
+     * @param filePath path to the staff CSV file
+     */
     private static void loadCareerStaff(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = br.readLine(); // skip header
@@ -123,6 +155,11 @@ public class Main {
         }
     }
 
+    /**
+     * Loads student data from a CSV file and adds them to the user list.
+     *
+     * @param filePath path to the student CSV file
+     */
     private static void loadStudents(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = br.readLine(); // skip header
@@ -142,6 +179,14 @@ public class Main {
         }
     }
 
+    /**
+     * Loads internship records from a CSV file, resolves company and representative references,
+     * constructs {@link Internship} objects, and stores them in the global list.
+     *
+     * @param filePath   path to the internship CSV file
+     * @param users      list of users (used to match company representatives)
+     * @param companyMap map containing existing companies for reuse
+     */
     private static void loadInternships(String filePath, List<User> users, Map<String, Company> companyMap) {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -209,6 +254,4 @@ public class Main {
         e.printStackTrace();
     }
 }
-
-
 }

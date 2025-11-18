@@ -12,7 +12,23 @@ import enumeration.InternshipLevel;
 import enumeration.InternshipStatus;
 import entity.Student;
 
+/**
+ * Controller class that manages internship applications.
+ * <p>
+ * Provides operations for students to apply, withdraw and accept internships,
+ * for company representatives to accept applications, and for career center
+ * staff to review withdrawal requests.
+ */
+
 public class ApplicationController {
+
+    /**
+     * Controller class that manages internship applications.
+     * <p>
+     * Provides operations for students to apply, withdraw and accept internships,
+     * for company representatives to accept applications, and for career center
+     * staff to review withdrawal requests.
+     */
 
     // 1. Create a new application when a student applies for an internship
     public static void createApplication(Student student, Internship internship) {
@@ -60,6 +76,13 @@ public class ApplicationController {
         System.out.println(student.getName() + " applied for " + internship.getTitle() + " at " + internship.getCompany().getName());
     }
 
+    /**
+     * Requests withdrawal from an existing application for the given internship
+     * on behalf of the student, updating the application status accordingly.
+     *
+     * @param student    the student requesting withdrawal
+     * @param internship the internship from which the student wants to withdraw
+     */
     // 2. Student requests withdrawal from an application
     public static void requestWithdrawal(Student student, Internship internship) {
         if (!student.isLoggedIn()) {
@@ -91,6 +114,15 @@ public class ApplicationController {
         System.out.println(student.getName() + " has requested withdrawal from " + internship.getTitle());
     }
 
+    /**
+     * Reviews a student's withdrawal request for a specific internship and
+     * either approves or rejects it on behalf of a career center staff member.
+     *
+     * @param staff      the staff member reviewing the withdrawal request
+     * @param student    the student who requested the withdrawal
+     * @param internship the internship associated with the application
+     * @param approve    {@code true} to approve the withdrawal, {@code false} to reject it
+     */
     
     // 3. Career center staff to approve or reject a student's withdrawal request
     public static void reviewWithdrawal(CareerCenterStaff staff, Student student, Internship internship, boolean approve) {
@@ -127,6 +159,13 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * Allows a student to accept an internship offer, provided that the
+     * application has already been accepted by the company representative.
+     *
+     * @param student    the student accepting the internship
+     * @param internship the internship being accepted
+     */
     // 4. Student accepts an internship (after being approved by company)
     public static void acceptInternship(Student student, Internship internship) {
         if (!student.isLoggedIn()) {
@@ -154,6 +193,14 @@ public class ApplicationController {
         }
     }
 
+    /**
+     * Allows a company representative to accept a student's application
+     * for a specific internship, if the application is still pending.
+     *
+     * @param rep        the company representative accepting the application
+     * @param internship the internship the student applied for
+     * @param student    the student whose application is being accepted
+     */
     // 5. Company representative accepts a student for an internship 
     public static void acceptApplicationByCompanyRep(CompanyRep rep, Internship internship, Student student) {
         if (!rep.isLoggedIn()) {

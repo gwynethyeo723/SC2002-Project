@@ -4,8 +4,13 @@ import java.util.*;
 import enumeration.InternshipLevel;
 import enumeration.InternshipStatus;
 
-// ----- This class defines the attributes relevant to each Internship. -----//
-// ----- Relevant attributes include Title, Description, Company, Representative, Level, Preferred Major, Total Slots, Remaining Slots, Visibility, Status, and Opening and Closing Dates. -----//
+/**
+ * Represents an internship offered by a company.
+ * <p>
+ * Stores details such as title, description, company, representative,
+ * internship level, preferred major, slot availability, visibility,
+ * approval status, and application period.
+ */
 public class Internship {
     private String title;
     private String description;
@@ -20,7 +25,21 @@ public class Internship {
     private Date openingDate;
     private Date closingDate;
 
-    // Constructor
+    /**
+     * Creates a new internship with the specified details.
+     * Slots are capped at a maximum of 10 and the internship starts
+     * with {@link InternshipStatus#PENDING} and hidden visibility.
+     *
+     * @param title          internship title
+     * @param description    description of the internship role
+     * @param company        company offering the internship
+     * @param representative the company representative who created it
+     * @param level          internship level (basic/intermediate/advanced)
+     * @param preferredMajor preferred applicant major
+     * @param slots          total available slots (max 10)
+     * @param openingDate    date applications open
+     * @param closingDate    date applications close
+     */
     public Internship(String title, String description, Company company, CompanyRep representative,
                         InternshipLevel level, String preferredMajor, int slots, Date openingDate, Date closingDate) {
         this.title = title;
@@ -53,28 +72,6 @@ public class Internship {
             default: return InternshipLevel.BASIC; // fallback
         }
     }
-
-
-    // Move to application
-    // // Decrease available slots by 1
-    // public void decreaseSlot() {
-    //     if (slotsRemaining > 0) {
-    //         slotsRemaining--;
-    //         if (slotsRemaining == 0) {
-    //             status = InternshipStatus.FILLED; // use enum
-    //         }
-    //     }
-    // }
-
-
-    // Move to application
-    // public void increaseSlot() {
-    //     slotsRemaining++;
-    //     if (status == InternshipStatus.FILLED) { // compare enum directly
-    //         status = InternshipStatus.APPROVED; // reopen if previously full
-    //     }
-    // }
-
 
     // Setters and Getters
     public String getTitle() { return title; }

@@ -12,6 +12,30 @@ import entity.Internship;
 import entity.Student;
 import entity.User;
 
+/**
+ * Displays the main menu for a logged-in {@link CareerCenterStaff} user and
+ * processes the selected actions. This menu allows staff to manage approval
+ * workflows and view system-wide internship information.
+ *
+ * <p>This method runs continuously in a loop until the staff member chooses
+ * the <b>Logout</b> option. For each menu selection, the corresponding
+ * controller method is invoked. The available functions include:
+ *
+ * <ul>
+ *     <li>reviewing and approving/rejecting company representative accounts</li>
+ *     <li>reviewing and approving/rejecting internships submitted by company reps</li>
+ *     <li>reviewing and approving/rejecting student withdrawal requests</li>
+ *     <li>generating internship reports with optional filters (status, major, level)</li>
+ *     <li>changing the staff member's account password</li>
+ * </ul>
+ *
+ * <p>This method does not return a value. The menu loop ends only after
+ * {@link controller.UserController#logout(entity.User)} is called.
+ *
+ * @param staff the logged-in career center staff member using this menu
+ * @param users the list of all users in the system, used to identify students and company representatives
+ */
+
 public class CareerStaffMenu {
 
     private static final Scanner sc = new Scanner(System.in);
