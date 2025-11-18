@@ -104,8 +104,6 @@ public class ApplicationController {
                 || app.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE
                 || app.getStatus() == ApplicationStatus.PENDING){
             app.setStatus(ApplicationStatus.PENDING_WITHDRAWAL);
-        // } else if (app.getStatus() == ApplicationStatus.PENDING || app.getStatus() == ApplicationStatus.APPROVED) {
-        //     app.setStatus(ApplicationStatus.WITHDRAWN);
         } else {
             System.out.println("Cannot withdraw: Current status is " + app.getStatus());
             return;
@@ -144,14 +142,10 @@ public class ApplicationController {
             GlobalApplicationList.getByInternshipAndStudent(internship, student).stream()
                 .findFirst()
                 .ifPresent(app -> {
-                    // Update the application status
-                    app.setStatus(ApplicationStatus.WITHDRAWN);
-                    InternshipController.increaseSlot(internship);
-
-                    // If the internship was accepted by the student, return the slot
                     if (app.getStatus() == ApplicationStatus.ACCEPTED_BY_STUDENT) {
                         InternshipController.increaseSlot(internship);
                     }
+                    app.setStatus(ApplicationStatus.WITHDRAWN);
                 });
 
             System.out.println("Withdrawal approved for " + student.getName() + " from " + internship.getTitle());
@@ -226,7 +220,7 @@ public class ApplicationController {
 
         Application app = applications.get(0);
         if (app.getStatus() == ApplicationStatus.PENDING
-            && internship.getSlotsRemaining() > 0) { // conditions, add code here 
+            && internship.getSlotsRemaining() > 0) { 
             app.setStatus(ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE);
             System.out.println("Application by " + student.getName() + " has been accepted by " + rep.getName());
         } else {

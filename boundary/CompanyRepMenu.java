@@ -71,7 +71,7 @@ public class CompanyRepMenu {
                     System.out.print("Description: "); String desc = sc.nextLine();
                     System.out.print("Level (Basic/Intermediate/Advanced): "); String level = sc.nextLine();
                     System.out.print("Preferred Major: "); String major = sc.nextLine();
-                    System.out.print("Slots: "); int slots = sc.nextInt(); sc.nextLine();
+                    System.out.print("Slots (integer): "); int slots = sc.nextInt(); sc.nextLine();
                     System.out.print("Opening Date (yyyy-MM-dd): "); Date open = parseDate(sc.nextLine());
                     System.out.print("Closing Date (yyyy-MM-dd): "); Date close = parseDate(sc.nextLine());
                     InternshipController.createInternship( title, desc, rep.getCompany(), rep,
@@ -85,9 +85,9 @@ public class CompanyRepMenu {
                     if (internship != null) {
                         System.out.print("New Title: "); String newTitle = sc.nextLine();
                         System.out.print("New Description: "); String newDesc = sc.nextLine();
-                        System.out.print("New Level: "); String newLevel = sc.nextLine();
+                        System.out.print("New Level (Basic/Intermediate/Advanced): "); String newLevel = sc.nextLine();
                         System.out.print("New Preferred Major: "); String newMajor = sc.nextLine();
-                        System.out.print("New Slots: "); int newSlots = sc.nextInt(); sc.nextLine();
+                        System.out.print("New Slots (integer): "); int newSlots = sc.nextInt(); sc.nextLine();
                         System.out.print("New Opening Date (yyyy-MM-dd): "); Date newOpen = parseDate(sc.nextLine());
                         System.out.print("New Closing Date (yyyy-MM-dd): "); Date newClose = parseDate(sc.nextLine());
                         InternshipController.editInternship(rep, internship, newTitle, newDesc,
@@ -114,9 +114,16 @@ public class CompanyRepMenu {
                 }
                 case 5 -> {
                     List<Internship> internships = GlobalInternshipList.getByCompanyRep(rep);
-                    if (internships.isEmpty()) System.out.println("No internships found.");
-                    else internships.forEach(i ->
-                            System.out.println(i.getTitle() + " | " + i.getCompany().getName() + " | Status: " + i.getStatus()));
+                    if (internships.isEmpty()) {
+                        System.out.println("No internships found.");
+                    } else {
+                        internships.forEach(i -> {
+                            int slotsFilled = i.getTotalSlots() - i.getSlotsRemaining();
+                            System.out.println(i.getTitle() + " | " + i.getCompany().getName() +
+                                            " | Status: " + i.getStatus() +
+                                            " | Slots Filled: " + slotsFilled + "/" + i.getTotalSlots());
+                        });
+                    }
                 }
                 case 6 -> {
                     System.out.print("Enter internship title: ");

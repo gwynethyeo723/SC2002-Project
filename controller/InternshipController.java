@@ -94,6 +94,11 @@ public class InternshipController {
             System.out.println("You must be logged in to edit an internship.");
             return;
         }
+        
+        if (internship.getStatus() == InternshipStatus.APPROVED) {
+            System.out.println("This internship has already been approved and cannot be modified.");
+            return;
+        }
 
         // Enforce maximum slots of 10
         if (newSlots > 10) newSlots = 10;
@@ -152,6 +157,7 @@ public class InternshipController {
         for (Application app : appsForInternship) {
             app.setStatus(ApplicationStatus.DELETED);
         }
+        GlobalInternshipList.removeInternship(internship);
 
         System.out.println("Internship '" + internship.getTitle() + "' deleted successfully.");
     }
@@ -248,7 +254,7 @@ public class InternshipController {
             System.out.println("You must be logged in to perform this action.");
             return;
         }
-        List<Internship> internships = GlobalInternshipList.getAll(); // use global list
+        List<Internship> internships = GlobalInternshipList.getAll(); 
         Date today = new Date(); // current date
         System.out.println("---- Internship Report ----");
 

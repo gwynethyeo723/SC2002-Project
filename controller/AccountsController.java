@@ -38,7 +38,7 @@ public class AccountsController {
         }
 
         if (approve) {
-            rep.setStatus(CompanyRepStatus.APPROVED); // assuming you have a CompanyRepStatus enum
+            rep.setStatus(CompanyRepStatus.APPROVED); 
             System.out.println("CompanyRep " + rep.getName() + " approved.");
         } else {
             rep.setStatus(CompanyRepStatus.REJECTED);

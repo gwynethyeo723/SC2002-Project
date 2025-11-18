@@ -2,7 +2,9 @@ package controller;
 
 import java.util.List;
 
+import entity.CompanyRep;
 import entity.User;
+import enumeration.CompanyRepStatus;
 
 /**
  * Controller class that handles core user account actions such as login, 
@@ -40,6 +42,13 @@ public class UserController {
         if (!user.getPassword().equals(password)) {
             System.out.println("Incorrect password.");
             return null;
+        }
+        
+        if (user instanceof CompanyRep rep) {
+            if (rep.getStatus() != CompanyRepStatus.APPROVED) {
+                System.out.println("Your account is not approved yet. Please wait for staff approval.");
+                return null;
+            }
         }
 
         // Successful login

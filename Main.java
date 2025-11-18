@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+import controller.UserController;
 import database.GlobalInternshipList;
 import entity.CareerCenterStaff;
 import entity.CompanyRep;
@@ -47,18 +48,9 @@ public class Main {
             System.out.println("Enter Password: ");
             String password = sc.nextLine();
 
-            User loggedInUser = users.stream()
-                    .filter(u -> u.getUserId().equals(id))
-                    .findFirst()
-                    .orElse(null);
-
+            User loggedInUser = UserController.login(users, id, password);
             if (loggedInUser == null) {
-                System.out.println("User not found.");
                 continue;
-            }
-
-            if (!loggedInUser.login(id, password)) {
-                 continue;
             }
 
             // Show menu based on role

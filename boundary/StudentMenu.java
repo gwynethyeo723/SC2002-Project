@@ -60,11 +60,11 @@ public class StudentMenu {
             int choice;
             if (sc.hasNextInt()) {
                 choice = sc.nextInt();
-                sc.nextLine(); // consume newline
+                sc.nextLine(); 
             } else {
                 System.out.println("Invalid input. Please enter a number between 1 and 8.");
-                sc.next(); // consume the invalid input token to clear the buffer
-                continue; // restart the loop
+                sc.next(); 
+                continue; 
             }
 
             switch (choice) {
