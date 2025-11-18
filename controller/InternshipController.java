@@ -205,12 +205,15 @@ public class InternshipController {
         int studentYear = student.getYear();
         boolean canDoBasicOnly = studentYear < 3;
 
+        String studentMajor = student.getMajor().trim();
+
         // Filter internships that are visible, approved, not filled, and within application period
         List<Internship> available = GlobalInternshipList.getAll().stream()
                 .filter(i -> i.getVisibility()
                         && i.getStatus() == InternshipStatus.APPROVED
                         && i.getSlotsRemaining() > 0
                         && (!canDoBasicOnly || i.getLevel() == InternshipLevel.BASIC)
+                        && (i.getPreferredMajor() != null && i.getPreferredMajor().trim().equalsIgnoreCase(studentMajor))
                         && today.isAfter(i.getOpeningDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate().minusDays(1))
                         && today.isBefore(i.getClosingDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate().plusDays(1))
                 )
