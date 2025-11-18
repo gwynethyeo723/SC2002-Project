@@ -57,8 +57,15 @@ public class StudentMenu {
             System.out.println("7. Change password");
             System.out.println("8. Logout");
 
-            int choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            int choice;
+            if (sc.hasNextInt()) {
+                choice = sc.nextInt();
+                sc.nextLine(); // consume newline
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and 8.");
+                sc.next(); // consume the invalid input token to clear the buffer
+                continue; // restart the loop
+            }
 
             switch (choice) {
                 case 1 -> {

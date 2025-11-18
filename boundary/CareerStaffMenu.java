@@ -50,8 +50,15 @@ public class CareerStaffMenu {
             System.out.println("5. Change password");
             System.out.println("6. Logout");
 
-            int choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            int choice;
+            if (sc.hasNextInt()) {
+                choice = sc.nextInt();
+                sc.nextLine(); 
+            } else {
+                System.out.println("Invalid input. Please enter a number between 1 and 6.");
+                sc.next(); 
+                continue; 
+            }
 
             switch (choice) {
                 case 1 -> {

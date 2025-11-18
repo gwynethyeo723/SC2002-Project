@@ -40,7 +40,6 @@ public class ApplicationController {
         // Check maximum 3 active applications
         long activeApplications = GlobalApplicationList.getByStudent(student).stream()
                 .filter(a -> a.getStatus() == ApplicationStatus.PENDING
-                        || a.getStatus() == ApplicationStatus.APPROVED
                         || a.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE
                         || a.getStatus() == ApplicationStatus.ACCEPTED_BY_STUDENT)
                 .count();
@@ -102,10 +101,11 @@ public class ApplicationController {
         Application app = applications.get(0);
 
         if (app.getStatus() == ApplicationStatus.ACCEPTED_BY_STUDENT
-                || app.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE) {
+                || app.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE
+                || app.getStatus() == ApplicationStatus.PENDING){
             app.setStatus(ApplicationStatus.PENDING_WITHDRAWAL);
-        } else if (app.getStatus() == ApplicationStatus.PENDING || app.getStatus() == ApplicationStatus.APPROVED) {
-            app.setStatus(ApplicationStatus.WITHDRAWN);
+        // } else if (app.getStatus() == ApplicationStatus.PENDING || app.getStatus() == ApplicationStatus.APPROVED) {
+        //     app.setStatus(ApplicationStatus.WITHDRAWN);
         } else {
             System.out.println("Cannot withdraw: Current status is " + app.getStatus());
             return;
@@ -215,7 +215,8 @@ public class ApplicationController {
         }
 
         Application app = applications.get(0);
-        if (app.getStatus() == ApplicationStatus.PENDING) {
+        if (app.getStatus() == ApplicationStatus.PENDING
+            || internship.getSlotsRemaining() > 0) { // conditions, add code here 
             app.setStatus(ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE);
             System.out.println("Application by " + student.getName() + " has been accepted by " + rep.getName());
         } else {

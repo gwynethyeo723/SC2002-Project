@@ -8,8 +8,6 @@ package enumeration;
 public enum ApplicationStatus {
     /** The application has been submitted and is awaiting review. */
     PENDING("Pending"),
-     /** The application has been approved by the career center staff. */
-    APPROVED("Approved"),
     /** The company representative has accepted the student. */
     ACCEPTED_BY_COMPANY_REPRESENTATIVE("Accepted by Company Representative"),
     /** The student has accepted the internship offer. */
