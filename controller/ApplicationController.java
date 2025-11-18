@@ -146,6 +146,7 @@ public class ApplicationController {
                 .ifPresent(app -> {
                     // Update the application status
                     app.setStatus(ApplicationStatus.WITHDRAWN);
+                    InternshipController.increaseSlot(internship);
 
                     // If the internship was accepted by the student, return the slot
                     if (app.getStatus() == ApplicationStatus.ACCEPTED_BY_STUDENT) {
