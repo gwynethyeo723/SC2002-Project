@@ -226,7 +226,7 @@ public class ApplicationController {
 
         Application app = applications.get(0);
         if (app.getStatus() == ApplicationStatus.PENDING
-            || internship.getSlotsRemaining() > 0) { // conditions, add code here 
+            && internship.getSlotsRemaining() > 0) { // conditions, add code here 
             app.setStatus(ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE);
             System.out.println("Application by " + student.getName() + " has been accepted by " + rep.getName());
         } else {
