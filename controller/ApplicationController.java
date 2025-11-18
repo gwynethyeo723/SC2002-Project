@@ -182,14 +182,23 @@ public class ApplicationController {
             return;
         }
 
-        Application app = applications.get(0);
+    Application acceptedApp = applications.get(0);
 
-        if (app.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE) {
-            app.setStatus(ApplicationStatus.ACCEPTED_BY_STUDENT);
-            InternshipController.decreaseSlot(internship);
-            System.out.println(student.getName() + " accepted internship: " + internship.getTitle() + " at " + internship.getCompany().getName());
+    if (acceptedApp.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE) {
+        acceptedApp.setStatus(ApplicationStatus.ACCEPTED_BY_STUDENT);
+        InternshipController.decreaseSlot(internship);
+
+        System.out.println(student.getName() + " accepted internship: "
+                + internship.getTitle() + " at " + internship.getCompany().getName());
+
+        GlobalApplicationList.getByStudent(student).stream()
+                .filter(app -> app != acceptedApp) 
+                .filter(app -> app.getStatus() == ApplicationStatus.PENDING
+                        || app.getStatus() == ApplicationStatus.ACCEPTED_BY_COMPANY_REPRESENTATIVE
+                        || app.getStatus() == ApplicationStatus.PENDING_WITHDRAWAL)
+                .forEach(app -> app.setStatus(ApplicationStatus.WITHDRAWN));
         } else {
-            System.out.println("Cannot accept internship: Current status is " + app.getStatus());
+            System.out.println("Cannot accept internship: Current status is " + acceptedApp.getStatus());
         }
     }
 
